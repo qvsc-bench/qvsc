@@ -1,0 +1,43 @@
+cff-version: 1.2.0
+message: "If you use QvsC, please cite it as below, together with the instance sources listed in each problem's instances/SOURCES.md."
+title: "QvsC: Quantum vs Classical Optimization Benchmark"
+type: software
+authors:
+  - family-names: Marino
+    given-names: Raffaele
+version: 0.1.0
+date-released: 2026-11-27
+license: MIT
+repository-code: "https://github.com/qvsc-bench/qvsc"
+url: "https://qvsc-bench.github.io/qvsc/"
+abstract: >-
+  An open, verifiable benchmark where quantum, hybrid and classical solvers
+  compete on the same combinatorial optimization instances. Every leaderboard
+  entry is recomputed from a submitted solution file. Two problems are
+  live: Maximum Independent Set (143 instances) and Max-Cut (401 instances,
+  including planted instances on quantum hardware graphs), each with classical
+  reference baselines.
+keywords:
+  - quantum computing
+  - benchmark
+  - combinatorial optimization
+  - maximum independent set
+  - max-cut
+  - quantum advantage
+  - QAOA
+  - quantum annealing
+references:
+  - type: article
+    title: "A short review on the maximum clique problem algorithms with classical, AI, and quantum methods"
+    authors:
+      - family-names: Marino
+        given-names: Raffaele
+      - family-names: Buffoni
+        given-names: Lorenzo
+      - family-names: Zavalnij
+        given-names: Bogdan
+    journal: "Communications Physics"
+    volume: 9
+    start: 239
+    year: 2026
+    doi: "10.1038/s42005-026-02606-7"

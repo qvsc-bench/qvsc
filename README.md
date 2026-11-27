@@ -90,11 +90,20 @@ tests/               unit tests
 
 ## Citing
 
-If you use QvsC, please cite the review that defines the MIS quantum track, and the instance sources
-listed in [`problems/mis/instances/SOURCES.md`](problems/mis/instances/SOURCES.md) and
+If you use QvsC, please cite the benchmark itself (GitHub's "Cite this repository" button gives APA and BibTeX
+from [`CITATION.cff`](CITATION.cff); every release also gets a Zenodo DOI), the review that defines the MIS
+quantum track, and the instance sources listed in [`problems/mis/instances/SOURCES.md`](problems/mis/instances/SOURCES.md) and
 [`problems/maxcut/instances/SOURCES.md`](problems/maxcut/instances/SOURCES.md).
 
 ```bibtex
+@software{qvsc,
+  title   = {{QvsC}: Quantum vs Classical Optimization Benchmark},
+  author  = {Marino, Raffaele},
+  year    = {2026},
+  version = {0.1.0},
+  url     = {https://github.com/qvsc-bench/qvsc}
+}
+
 @article{marino2026clique,
   title   = {A short review on the maximum clique problem algorithms with classical, AI, and quantum methods},
   author  = {Marino, Raffaele and Buffoni, Lorenzo and Zavalnij, Bogdan},
