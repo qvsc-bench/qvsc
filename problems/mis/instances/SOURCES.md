@@ -34,8 +34,8 @@ python scripts/import_sources.py --qoblib PATH/TO/QOBLIB/07-independentset --qbe
 | `family` | sub-folder of `instances/` |
 | `tracks` | `;`-separated leaderboard tracks (`all`, `quantum-scale` = n ≤ 128, `review-qbench`, `review-evil`) |
 | `n`, `m` | vertices, edges (after removing duplicates and self-loops) |
-| `best_known` | largest verified independent set known to QvsC |
-| `status` | `optimal` (matches a proven upper bound), `best-known`, or `unknown` |
+| `best_known` | largest independent set known to QvsC: reported by QOBLIB, known by construction (EVIL), or found by a verified submission (see `record_source`) |
+| `status` | `optimal` (matches a proven upper bound) or `best-known` |
 | `upper_bound` | proven upper bound on α(G), if any |
 | `record_source` | who first reached `best_known` |
 | `sha256` | hash of the graph content (see `qvsc.mis.graph.graph_hash`) |

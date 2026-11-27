@@ -4,3 +4,5 @@ problems/mis/baselines/arw_ils
 *.egg-info/
 build/
 dist/
+.cache/
+problems/maxcut/baselines/maxcut_heur
