@@ -188,7 +188,7 @@ def write_markdown(subs, idx, path: Path):
          "> **ratio** = mean cut / target; **at 99%** = instances within 1% of the target; **TTT99** = median",
          "> time to first reach 99% of the target over those instances (from trajectories, self-reported timings).",
          "> Time limits and hardware differ between submissions: read them before comparing.",
-         "> How to read these numbers, with an example: [README.md](README.md#how-to-read-the-mean-ratio).", ""]
+         "> How to read these numbers, with examples: [README.md](README.md#how-the-leaderboard-works).", ""]
     for track, title in TRACKS:
         rows = summarize(subs, idx, track)
         if not rows:

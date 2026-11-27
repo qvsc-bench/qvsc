@@ -65,7 +65,7 @@ footer a{color:var(--muted)}
 <div class="wrap hero">
   <h1>Does the quantum solver beat the best classical one? Let's check.</h1>
   <p>QvsC (Quantum vs Classical) is an open benchmark for combinatorial optimization. Quantum, hybrid and classical
-  solvers run on the same fixed instances, and every result is recomputed from the submitted solution.
+  solvers run on the same fixed instances, and every solution value is recomputed from the submitted solution.
   No accounts, no fees, no trust required.</p>
   <a class="btn primary" href="#submit">Submit a result</a>
   <a class="btn secondary" href="#leaderboard">See the leaderboard</a>
@@ -74,9 +74,9 @@ footer a{color:var(--muted)}
 <section><div class="wrap">
   <h2>Why this exists</h2>
   <div class="grid">
-    <div class="card"><h3>Same instances</h3><p>Fixed, versioned instance sets with hashes and best-known values. No cherry-picking.</p></div>
-    <div class="card"><h3>Strong classical baselines</h3><p>Quantum claims are measured against good classical solvers, not weak strawmen.</p></div>
-    <div class="card"><h3>Verified, not reported</h3><p>CI checks every solution file. A number appears only if the solution is feasible.</p></div>
+    <div class="card"><h3>Same instances</h3><p>Fixed, versioned instance sets with hashes, sources and best-known values. No cherry-picking.</p></div>
+    <div class="card"><h3>Open classical baselines</h3><p>Simple classical solvers anyone can rerun. Stronger ones are welcome: a quantum claim has to beat the best classical entry, not a strawman.</p></div>
+    <div class="card"><h3>Verified, not reported</h3><p>CI recomputes the value of every solution file. A value appears only if the solution is valid. Running times are self-reported.</p></div>
     <div class="card"><h3>Fair accounting</h3><p>Quantum entries state device, shots, device time and any classical post-processing.</p></div>
   </div>
 </div></section>
@@ -125,7 +125,7 @@ footer a{color:var(--muted)}
 
 <footer><div class="wrap">
   QvsC: Quantum vs Classical Optimization Benchmark · code MIT, instances under their sources' licences ·
-  Max-Cut instances from G-set, Biq Mac and MQLib ·
+  Max-Cut literature instances from G-set, Biq Mac and MQLib; generated instances CC-BY-4.0 ·
   MIS quantum track from Marino, Buffoni &amp; Zavalnij, <a href="https://doi.org/10.1038/s42005-026-02606-7">Commun. Phys. 9, 239 (2026)</a>
 </div></footer>
 
@@ -153,10 +153,11 @@ const VIEWS = {
                r.ttt99 == null ? "–" : Number(r.ttt99).toPrecision(3), esc(r.time_limit), esc(r.hardware)],
     score: r => `${r.hits} / ${r.total}`,
     sub: r => `instances at target · mean ratio ${r.ratio.toFixed(2)}% · ${r.method}, ${r.time_limit} s per instance`,
-    note: `The target of an instance is the larger of the best cut verified here and the best value in the literature
-      (for planted instances: the optimum, known by construction). Hits: cut reaches the target. Mean ratio: average cut / target.
-      At 99% and TTT99: instances within 1% of the target, and the median time at which the run first got there (self-reported).
-      <a href="https://github.com/qvsc-bench/qvsc/blob/main/problems/maxcut/README.md#how-to-read-the-mean-ratio">How to read these numbers</a>.
+    note: `Each instance has a target: the larger of the best cut verified here and the best value published in the literature
+      (for planted instances: the optimum, known by construction). Hits: instances where the cut reaches the target.
+      At 99%: instances where the cut is within 1% of the target. Mean ratio: average of cut / target over the attempted instances.
+      TTT99: median time at which the run first got within 1% of the target, over the instances counted in "At 99%" (self-reported times).
+      <a href="https://github.com/qvsc-bench/qvsc/blob/main/problems/maxcut/README.md#how-the-leaderboard-works">How to read these numbers</a>.
       Per-instance results: <a href="https://github.com/qvsc-bench/qvsc/blob/main/problems/maxcut/LEADERBOARD.md">LEADERBOARD.md</a> ·
       raw data: <a href="data/maxcut.json">maxcut.json</a>.`
   }

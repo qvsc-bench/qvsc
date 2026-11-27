@@ -28,6 +28,32 @@ Tracks on the leaderboard:
 Graphs are in DIMACS format (`p edge n m`, then `e u v`, 1-based), gzip-compressed.
 Sources, licences and column meanings: [`instances/SOURCES.md`](instances/SOURCES.md).
 
+## How the leaderboard works
+
+Each instance has a **best-known** value (`best_known` in `instances/index.csv`). It comes from one
+of three places, recorded in the `record_source` column: the value reported by QOBLIB for its
+instances (`qoblib:...`), the clique number known by construction for the EVIL graphs
+(`construction ...`), or a submission to QvsC whose solution file CI has verified (the submission's
+folder name). For each submission and track the leaderboard shows:
+
+| Column | Meaning |
+|:--|:--|
+| **Hits** | instances where the submitted set is as large as the best-known value |
+| **Attempted** | instances with a solution file in the submission / instances in the track |
+| **Mean gap** | average of (best known − size) / best known over the attempted instances; 0% means best-known everywhere |
+| **Time limit** | the budget per instance declared by the submitter |
+
+Rows are sorted by hits, then mean gap. Example: if the best known on an instance is 50 and a
+submission finds 49, its gap there is 2%.
+
+The best-known value is not always the optimum. An instance is `optimal` when the best-known value
+matches a proven upper bound (from an exact solver, or known by construction as for the EVIL graphs),
+`best-known` otherwise. When a submission finds a larger set, the best-known value moves to it and
+every other submission's gap on that instance grows. Running times are reported by the submitter.
+
+The Max-Cut track goes one step further and keeps literature values in a separate column, so that
+`best_known` there is always backed by a solution file in the repository.
+
 ## Quick start
 
 Run from the repository root (Python ≥ 3.11, no dependencies):
@@ -51,8 +77,8 @@ python problems/mis/scripts/run_baselines.py arw_ils --time 10 --jobs 4
 | Baseline | What it is | Why it is here |
 |:--|:--|:--|
 | `greedy` | minimum-degree greedy, one pass | the floor: any method should beat it |
-| `arw_ils` | iterated local search with (1,2)-swaps (Andrade, Resende & Werneck 2012), ~250 lines of C++ | a strong, simple heuristic; the bar a quantum claim should clear |
-| `cpsat` | Google OR-Tools CP-SAT on the edge formulation | the solver most quantum papers compare against; also certifies optima |
+| `arw_ils` | iterated local search with (1,2)-swaps (Andrade, Resende & Werneck 2012), ~250 lines of C++ | a strong, simple heuristic: the first bar a quantum claim should clear |
+| `cpsat` | Google OR-Tools CP-SAT on the edge formulation | a widely used free exact solver; also certifies optima |
 
 The baselines are deliberately simple. Stronger classical solvers (KaMIS, NuMVC, ReduMIS,
 exact clique solvers) are welcome as ordinary submissions.

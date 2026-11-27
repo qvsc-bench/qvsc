@@ -1,7 +1,8 @@
 # Reproducing the Max-Cut baselines
 
-Every number on the Max-Cut leaderboard comes from code in this repository. This page lists how
-the reference baselines of 2026-11-27 were run, so anyone can rerun them and compare.
+The reference baselines on the Max-Cut leaderboard come entirely from code in this repository. This
+page lists how they were run on 2026-11-27 (machine, versions, seeds, budgets), so anyone can rerun
+them and compare.
 
 ## Machine and software
 
@@ -11,7 +12,7 @@ the reference baselines of 2026-11-27 were run, so anyone can rerun them and com
 | Compiler | g++ 13.3.0, flags `-O3 -std=c++17` |
 | Python | CPython 3.13 (any ≥ 3.11 works; the checker and leaderboard have no dependencies) |
 | CP-SAT | `ortools` 9.15.6755 |
-| Topologies (instance generation only) | `dwave-networkx`, `rustworkx`, `qiskit-ibm-runtime` (fake backends FakeSherbrooke, FakeTorino, FakeFez) |
+| Topologies (instance generation only) | dwave-networkx 0.8.19, rustworkx 0.18.1, qiskit-ibm-runtime 0.52.1, qiskit 2.6.2 (fake backends FakeSherbrooke, FakeTorino, FakeFez) |
 
 Heuristics run single-threaded, four instances at a time (`--jobs 4`). CP-SAT runs one instance at a
 time with 4 worker threads. Times are wall-clock, exclude reading the input file, and are measured

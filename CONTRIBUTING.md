@@ -72,7 +72,9 @@ karate,20,0.01,10.0,1,
 ```
 
 `time_to_best_s` is the wall-clock time at which the returned solution was first found,
-`total_time_s` the full run. Quantum submissions may add a `qpu_time_s` column.
+`total_time_s` the full run. Quantum submissions may add a `qpu_time_s` column (pure device time).
+`upper_bound` is for exact solvers: a proven bound on the optimum. It is used only if
+`submission.toml` contains `exact = true` and a maintainer has reviewed the method.
 
 ## 5. Validate and open the PR
 
@@ -95,20 +97,29 @@ Same folder layout, under `problems/maxcut/submissions/<YYYY-MM-DD>_<method>_<te
   ```
 
 * **`results.csv`** (optional): `instance,reported_cut,time_to_best_s,total_time_s,seed,upper_bound`,
-  plus `time_to_target_s` and `qpu_time_s` if you have them.
+  plus `qpu_time_s` and `time_to_target_s` (time to first reach 99% of the target shown in
+  `instances/index.csv` when you ran) if you have them.
 * **`trajectories/<instance>.traj`** (optional, recommended): one line `time_s cut` each time your best
   cut improves. The leaderboard uses it to compute time-to-target (time to reach 99% of the target)
   against the *current* target, so your TTT stays meaningful when someone later raises a best-known value.
 * Validate with `python -m qvsc.maxcut.leaderboard --check`. Do not edit `problems/maxcut/LEADERBOARD.md`,
   `docs/data/` or `problems/maxcut/instances/index.csv`.
 
-For annealers: hardware-native instances (`pegasus`, `zephyr`, `heavyhex`, and the planted instances
-on those graphs) need no embedding; the unweighted topologies are in `problems/maxcut/instances/topologies/`.
-For QAOA: the `qaoa` and `gate-scale` tracks hold what fits on today's gate-based devices.
+How your results are scored (target, hits, mean ratio, time-to-target):
+[problems/maxcut/README.md](problems/maxcut/README.md#how-the-leaderboard-works).
+
+For annealers: the hardware-native instances (`pegasus`, `zephyr`, and the planted instances on those
+graphs) are defined on the ideal device graph, so they need no embedding apart from the few qubits
+and couplers missing on a real chip. The unweighted topologies are in `problems/maxcut/instances/topologies/`.
+For gate-based devices: the `heavyhex` instances use IBM coupling maps (no SWAP gates needed), and the
+`gate-scale` track collects every instance with at most 156 vertices (one qubit per vertex on IBM Heron r2).
+The `qaoa` track contains the usual QAOA families at all sizes, up to 10,000 vertices, for comparison
+with simulators and classical methods.
 
 ## Rules of thumb for a fair comparison
 
-1. Report **wall-clock** time, including queueing-free compilation, embedding and post-processing.
+1. Report **wall-clock** time per instance: include compilation, embedding and post-processing, and
+   leave out time spent waiting in a cloud queue (report it separately if you like).
 2. Say whether a classical post-processing step (repair, local search) was applied to quantum samples.
 3. Use the same time budget across instances, and state it.
 4. Report all instances you tried, not just the good ones.

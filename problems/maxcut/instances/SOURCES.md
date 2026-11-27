@@ -12,16 +12,17 @@ gzip-compressed, with `#` comment lines on top.
 
 | Family | Count | Origin | Reference values | Licence |
 |:--|--:|:--|:--|:--|
-| `gset` | 71 | G-set (Helmberg & Ye; generated with Rinaldi's `rudy`), [web.stanford.edu/~yyye/yyye/Gset](https://web.stanford.edu/~yyye/yyye/Gset/), downloaded from the public MQLib S3 bucket `mqlibinstances` | best of: Toshiba Simulated Bifurcation benchmark (2019), [arXiv:2505.18508](https://arxiv.org/abs/2505.18508) for G72/G77/G81, and the best of 37 heuristics in MQLib (Dunning, Gupta & Silberholz, *INFORMS J. Comput.* 30, 608, 2018). Tabulated in [KULeuven-MICAS/openising](https://github.com/KULeuven-MICAS/openising) | see upstream (public benchmark) |
-| `biqmac` | 178 | Max-Cut part of the [Biq Mac library](https://biqmac.aau.at/biqmaclib.html) (A. Wiegele, 2007): rudy graphs `g05`, `pm1s`, `pm1d`, `w01/05/09`, `pw01/05/09`; Ising chains `ising2.5/3.0`; toroidal grids `t2g`, `t3g` (F. Liers). From the MQLib S3 bucket | optimal values from the library (solved by Rendl, Rinaldi & Wiegele, *Math. Program.* 121, 307, 2010, and Liers et al.), tabulated by openising | see upstream |
-| `mqlib` | 34 | The other Max-Cut instances of the MQLib "standard" library: 4 DIMACS-7 tori (`Torus_3_8_50`, `Torus_3_15_50`, `Torusg_3_8`, `Torusg_3_15`) and 30 3D spin glasses `sg3dl*` (Festa et al., 2002) | best of 37 heuristics in MQLib (`data/results.zip`) | MIT (MQLib) / see upstream |
+| `gset` | 71 | G-set (Helmberg & Ye; generated with Rinaldi's `rudy`), [web.stanford.edu/~yyye/yyye/Gset](https://web.stanford.edu/~yyye/yyye/Gset/), downloaded from the public MQLib S3 bucket `mqlibinstances` | best of: Toshiba Simulated Bifurcation benchmark (2019), [arXiv:2505.18508](https://arxiv.org/abs/2505.18508) for G72/G77/G81, (both as tabulated in [KULeuven-MICAS/openising](https://github.com/KULeuven-MICAS/openising)), and the best of 37 heuristics in MQLib (Dunning, Gupta & Silberholz, *INFORMS J. Comput.* 30, 608, 2018); the largest of the three | see upstream (public benchmark) |
+| `biqmac` | 178 | Max-Cut part of the [Biq Mac library](https://biqmac.aau.at/biqmaclib.html) (A. Wiegele, 2007): rudy graphs `g05`, `pm1s`, `pm1d`, `w01/05/09`, `pw01/05/09`; Ising chains `ising2.5/3.0`; toroidal grids `t2g`, `t3g` (F. Liers). From the MQLib S3 bucket | optimal values listed in the library (see Rendl, Rinaldi & Wiegele, *Math. Program.* 121, 307, 2010), as tabulated by openising; the library site was not reachable when this set was built | see upstream |
+| `mqlib` | 34 | The other Max-Cut instances of the MQLib "standard" library: 4 DIMACS-7 tori (`Torus_3_8_50`, `Torus_3_15_50`, `Torusg_3_8`, `Torusg_3_15`) and 30 3D spin glasses `sg3dl*` (Festa et al., 2002) | best of 37 heuristics in MQLib (`data/results.zip`) | see upstream |
 
 `references.csv` records, for each literature instance, the MQLib S3 key it was taken from, the
 reference value, its source, and whether the source claims optimality.
 
 **Reference values are not trusted.** They are shown as the target to beat, but `best_known` only
 moves when a solution file in this repository reaches a value, and an instance is marked `optimal`
-only when a verified solution meets a bound proven in this repository (CP-SAT or exhaustive search).
+only when a verified solution meets a bound proven in this repository (CP-SAT, exhaustive search, or
+the planted construction).
 If a literature value is above what anyone can reproduce, the instance stays `below-reference`:
 that is information too.
 
@@ -56,19 +57,36 @@ SK stops at n = 2,000 because a complete graph on 10,000 vertices has 50 million
 | Frustrated loops (Hen et al., *Phys. Rev. A* 92, 042325, 2015) | 14 | Pegasus P6 and P16, Zephyr Z4 and Z12, IBM Eagle 127 and Heron r2 156, heavy-hex d=15, 3D cubic lattice L = 8, 16; loop densities α = 0.1–0.3, couplings |J| ≤ 3 |
 | Integer Wishart ensemble (after Hamze et al., *Phys. Rev. E* 101, 052102, 2020) | 14 | complete graphs, n = 32 … 512, α = m/n = 0.25 and 0.5 |
 
-How the optimum is known: see the docstrings of `planted_frustrated_loops` and
-`planted_wishart_pm1` in `qvsc/maxcut/generators.py`. In short, the energy is a sum of terms each of
-which the planted configuration minimises (loops), or a squared norm that the planted configuration
-sends to zero (Wishart), so no cut can beat it. `upper_bound` = `reference_value` = the optimum.
+Both constructions start from a hidden spin configuration t (t_i = ±1, i.e. a hidden cut) and build
+weights for which t is provably optimal. Recall that maximising the cut means minimising the Ising
+energy H(s) = Σ w_ij s_i s_j.
 
-On the integer Wishart instances with α = 0.25–0.5, simulated annealing and tabu search already
-miss the optimum at n = 128 with a few seconds per instance: they are the Max-Cut counterpart of
-the EVIL graphs of the MIS track, small enough for today's quantum hardware and hard for classical
-heuristics, with a certified answer.
+* **Frustrated loops.** Pick α·n random cycles of the hardware graph (α = loops per vertex). On each
+  cycle, put weight −1 on every edge but one and +1 on the last one, in the gauge where t is all +1.
+  No configuration can satisfy every edge of such a cycle, and t violates exactly one, so t minimises
+  every cycle's energy; H is the sum over cycles, so t minimises H. Cycles that would make any
+  |w| larger than 3 are rejected. Weights are then gauge-transformed by t to hide it.
+* **Integer Wishart.** Draw m = α·n random ±1 vectors, each orthogonal to t (exactly half of its
+  entries agree with t), and set w_ij = Σ_k v_ki v_kj. Then H(s) = (|Vᵀs|² − n·m) / 2 ≥ −n·m / 2 for
+  every s, and t reaches this bound because Vᵀt = 0. The graph is complete with integer weights.
+
+The proofs, in more detail, are in the docstrings of `planted_frustrated_loops` and
+`planted_wishart_pm1` in `qvsc/maxcut/generators.py`, and `tests/test_maxcut.py` checks both by brute
+force on small instances. In `index.csv`, `upper_bound` = `reference_value` = the optimum. As an
+independent check, exhaustive search over all 2³¹ cuts finds exactly the planted optimum on both
+n = 32 Wishart instances.
+
+On the integer Wishart instances with n ≥ 128 (and n = 100 with α = 0.5), none of the reference
+baselines finds the optimum with 10 seconds per instance. They play the role the EVIL graphs play
+in the MIS track: small (complete graphs on 100–512 vertices), hard for classical heuristics, and with
+a certified answer. The ones with n ≤ 156 can be run on current hardware: on a D-Wave Advantage
+through clique embedding, on IBM Heron with SWAP routing.
 
 **The seeds are secret.** Anyone with the seed could regenerate the planted cut. QvsC publishes the
 optimum value and the SHA-256 of the planted solution file (`planted.csv`); the files themselves are
-kept by the maintainers and can be published later, which proves the values were fixed in advance.
+kept by the maintainers and can be published later. Anyone can then run `sha256sum` on a published
+file, compare it with `planted.csv`, and check its cut with `python -m qvsc.maxcut.verify`: this proves
+that the optimum was fixed before any submission.
 
 ## `index.csv` columns
 
@@ -96,6 +114,7 @@ python problems/maxcut/scripts/import_sources.py --hardware
 ```
 
 The literature instances are downloaded from `https://mqlibinstances.s3.amazonaws.com/`. Random
-families use public string seeds (shown in each file's header) and pure-Python generators, so they
-are reproduced bit for bit; `sha256` lets you check. Planted instances need the maintainers' secret
+families use public string seeds (shown in each file's header) and the pure-Python generators in
+`qvsc/maxcut/generators.py`, so with CPython ≥ 3.11 they are reproduced bit for bit; the `sha256`
+column lets you check. Planted instances need the maintainers' secret
 (`--planted`, with `QVSC_PLANTED_SECRET` set) and are otherwise kept as they are.

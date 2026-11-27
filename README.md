@@ -8,13 +8,16 @@ Claims of quantum advantage in combinatorial optimisation are hard to check. Ins
 between papers, classical baselines are often weak, and reported numbers can rarely be reproduced.
 QvsC is a small, transparent fix:
 
-* **fixed, versioned instances** with hashes and best-known values;
-* **strong reference classical baselines** that anyone can run in minutes;
-* **a solution checker**: every number on the leaderboard is recomputed from a submitted solution file;
+* **fixed, versioned instances** with content hashes, sources and best-known values;
+* **reference classical baselines**, simple and open, that anyone can rerun; stronger classical
+  solvers are welcome as submissions and raise the bar;
+* **a solution checker**: every solution value on the leaderboard is recomputed from the submitted
+  solution file (running times are reported by the submitter and cannot be checked the same way);
 * **a public leaderboard** that grows through pull requests. No accounts, no server, no fees.
 
 The question QvsC answers is simple: *on this instance, with this budget, does the quantum method
-beat the best classical method we know?* If it does, the leaderboard shows it. If it does not, it shows that too.
+beat the best classical result submitted so far?* If it does, the leaderboard shows it. If it does not,
+it shows that too.
 
 ## Problems
 
@@ -27,18 +30,21 @@ beat the best classical method we know?* If it does, the leaderboard shows it. I
 
 ## Current leaderboard (MIS)
 
-On all 78 MIS instances of the quantum-scale track (n ≤ 128 vertices, the size of the graphs used on current quantum hardware), a 250-line classical
-local search reaches the optimum, certified by CP-SAT. The bar a quantum claim has to clear is therefore
+On all 78 MIS instances of the quantum-scale track (graphs with at most 128 vertices, the size used in
+current quantum-hardware experiments), a 250-line classical local search reaches the optimum, and
+CP-SAT proves that it is the optimum. The bar a quantum claim has to clear is therefore
 **speed and scale**, not solution quality on small graphs. Full tables: [web](https://qvsc-bench.github.io/qvsc/)
 or [problems/mis/LEADERBOARD.md](problems/mis/LEADERBOARD.md).
 
 ## Current leaderboard (Max-Cut)
 
-With 10 seconds per instance on one CPU core, simulated annealing gets within 1% of the target on
-372 of 401 instances. The open cases are where quantum claims should aim: 13 of the 28 planted
-instances (optimum known by construction) are still unsolved by every baseline, including integer
-Wishart instances with only 100–156 vertices, and 49 G-set graphs are still below the best values in
-the literature. Full tables: [problems/maxcut/LEADERBOARD.md](problems/maxcut/LEADERBOARD.md).
+With 10 seconds per instance on one CPU core, simple simulated annealing gets within 1% of the best
+known value on 372 of 401 instances. The open cases are where quantum claims should aim: on 13 of the
+28 planted instances, whose optimum is known by construction, no baseline finds the optimum (this
+includes complete graphs with only 100–156 vertices), and on 49 G-set graphs the baselines stay below
+the best values published in the literature. Full tables: [web](https://qvsc-bench.github.io/qvsc/)
+or [problems/maxcut/LEADERBOARD.md](problems/maxcut/LEADERBOARD.md); how to read them:
+[problems/maxcut/README.md](problems/maxcut/README.md#how-the-leaderboard-works).
 
 No quantum submission yet. **Be the first:** see [CONTRIBUTING.md](CONTRIBUTING.md).
 
@@ -47,13 +53,18 @@ No quantum submission yet. **Be the first:** see [CONTRIBUTING.md](CONTRIBUTING.
 ```bash
 git clone https://github.com/qvsc-bench/qvsc && cd qvsc     # Python ≥ 3.11, no dependencies
 
-# check a solution
+# MIS: check a solution
 python -m qvsc.mis.verify problems/mis/instances/qoblib/karate.gph.gz my_karate.sol
 
-# run the classical baselines
+# MIS: run the classical baselines
 python problems/mis/baselines/greedy.py problems/mis/instances/qoblib/karate.gph.gz --out karate.sol
 g++ -O2 -std=c++17 -o problems/mis/baselines/arw_ils problems/mis/baselines/arw_ils.cpp
 zcat problems/mis/instances/qoblib/frb45-21-3.gph.gz | problems/mis/baselines/arw_ils - --time 10 --out frb.sol
+
+# Max-Cut: check a cut (the vertices of one side), run simulated annealing
+python -m qvsc.maxcut.verify problems/maxcut/instances/gset/G1.mc.gz my_G1.sol
+g++ -O3 -std=c++17 -o problems/maxcut/baselines/maxcut_heur problems/maxcut/baselines/maxcut_heur.cpp
+zcat problems/maxcut/instances/gset/G1.mc.gz | problems/maxcut/baselines/maxcut_heur sa - --time 10 --out G1.sol
 
 # validate every submission, as CI does
 python -m qvsc.mis.leaderboard --check
@@ -97,4 +108,5 @@ listed in [`problems/mis/instances/SOURCES.md`](problems/mis/instances/SOURCES.m
 
 ## Licence
 
-Code: MIT. Instances keep the licences of their sources (see each problem's `instances/SOURCES.md`).
+Code: MIT. Instances taken from other benchmarks keep the licences of their sources; instances
+generated by QvsC are CC-BY-4.0 (see each problem's `instances/SOURCES.md`).
