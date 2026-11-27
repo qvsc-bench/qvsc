@@ -2,7 +2,7 @@
 
 **An open, verifiable benchmark where quantum, hybrid and classical solvers compete on the same instances.**
 
-[Leaderboard](https://qvsc-bench.github.io/qvsc/) · [Submit results](CONTRIBUTING.md) · [MIS track](problems/mis/README.md)
+[Leaderboard](https://qvsc-bench.github.io/qvsc/) · [Submit results](CONTRIBUTING.md) · [MIS track](problems/mis/README.md) · [Max-Cut track](problems/maxcut/README.md)
 
 Claims of quantum advantage in combinatorial optimisation are hard to check. Instances differ
 between papers, classical baselines are often weak, and reported numbers can rarely be reproduced.
@@ -20,17 +20,25 @@ beat the best classical method we know?* If it does, the leaderboard shows it. I
 
 | Problem | Status | Instances | Why it matters for quantum |
 |:--|:--|--:|:--|
-| [Maximum Independent Set](problems/mis/README.md) | **live** | 143 | native problem of Rydberg-atom processors; one-line QUBO for annealers and QAOA |
-| Max-Cut | planned | | the standard QAOA benchmark |
+| [Maximum Independent Set](problems/mis/README.md) | **live** | 143 | native problem of Rydberg-atom processors on unit-disk graphs; one-line QUBO for annealers and QAOA |
+| [Max-Cut](problems/maxcut/README.md) | **live** | 401 | the standard QAOA benchmark; a zero-field Ising ground state, native for annealers on their hardware graph |
 | K-SAT | planned | | random instances with a known hardness threshold |
 | LABS (low-autocorrelation binary sequences) | planned | | used in recent quantum-advantage claims |
 
 ## Current leaderboard (MIS)
 
-On all 78 MIS instances that fit on current quantum hardware (n ≤ 128 vertices), a 250-line classical
+On all 78 MIS instances of the quantum-scale track (n ≤ 128 vertices, the size of the graphs used on current quantum hardware), a 250-line classical
 local search reaches the optimum, certified by CP-SAT. The bar a quantum claim has to clear is therefore
 **speed and scale**, not solution quality on small graphs. Full tables: [web](https://qvsc-bench.github.io/qvsc/)
 or [problems/mis/LEADERBOARD.md](problems/mis/LEADERBOARD.md).
+
+## Current leaderboard (Max-Cut)
+
+With 10 seconds per instance on one CPU core, simulated annealing gets within 1% of the target on
+372 of 401 instances. The open cases are where quantum claims should aim: 13 of the 28 planted
+instances (optimum known by construction) are still unsolved by every baseline, including integer
+Wishart instances with only 100–156 vertices, and 49 G-set graphs are still below the best values in
+the literature. Full tables: [problems/maxcut/LEADERBOARD.md](problems/maxcut/LEADERBOARD.md).
 
 No quantum submission yet. **Be the first:** see [CONTRIBUTING.md](CONTRIBUTING.md).
 
@@ -49,6 +57,7 @@ zcat problems/mis/instances/qoblib/frb45-21-3.gph.gz | problems/mis/baselines/ar
 
 # validate every submission, as CI does
 python -m qvsc.mis.leaderboard --check
+python -m qvsc.maxcut.leaderboard --check
 ```
 
 ## Submitting results
@@ -61,8 +70,9 @@ so that comparisons stay fair. Details: [CONTRIBUTING.md](CONTRIBUTING.md).
 ## Repository layout
 
 ```
-qvsc/                Python package: one subpackage per problem (qvsc.mis: graph I/O, checker, leaderboard)
+qvsc/                Python package: one subpackage per problem (qvsc.mis, qvsc.maxcut: I/O, checker, leaderboard)
 problems/mis/        instances, baselines, submissions and leaderboard for Maximum Independent Set
+problems/maxcut/     the same for Max-Cut (plus instance generators in qvsc.maxcut.generators)
 docs/                landing page and leaderboard (GitHub Pages); docs/data/*.json is generated
 tests/               unit tests
 ```
@@ -70,7 +80,8 @@ tests/               unit tests
 ## Citing
 
 If you use QvsC, please cite the review that defines the MIS quantum track, and the instance sources
-listed in [`problems/mis/instances/SOURCES.md`](problems/mis/instances/SOURCES.md).
+listed in [`problems/mis/instances/SOURCES.md`](problems/mis/instances/SOURCES.md) and
+[`problems/maxcut/instances/SOURCES.md`](problems/maxcut/instances/SOURCES.md).
 
 ```bibtex
 @article{marino2026clique,

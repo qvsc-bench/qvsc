@@ -7,8 +7,9 @@ solution from the file you send.
 Quantum and hybrid submissions are the reason this benchmark exists. Classical submissions are just as
 welcome: a stronger classical baseline raises the bar every quantum claim has to clear.
 
-The steps below are for the Maximum Independent Set track (`problems/mis/`), the only one live today.
-Other problems will follow the same layout.
+Two problems are live: Maximum Independent Set (`problems/mis/`) and Max-Cut (`problems/maxcut/`).
+The steps below use MIS as the example; Max-Cut works the same way, with the differences listed in
+[Max-Cut submissions](#max-cut-submissions).
 
 ## 1. Create a folder
 
@@ -81,6 +82,29 @@ python -m qvsc.mis.leaderboard --check
 
 Do not edit `problems/mis/LEADERBOARD.md`, `docs/data/` or `problems/mis/instances/index.csv`: they are regenerated after merge.
 If your solution beats a best-known value, the record moves to your submission automatically.
+
+## Max-Cut submissions
+
+Same folder layout, under `problems/maxcut/submissions/<YYYY-MM-DD>_<method>_<team>/`, same `submission.toml`.
+
+* **`solutions/<instance>.sol`**: the vertices on *one* side of your cut, one per line, 1-based
+  (either side: a cut and its complement have the same value). The checker recomputes the cut value.
+
+  ```bash
+  python -m qvsc.maxcut.verify problems/maxcut/instances/gset/G1.mc.gz solutions/G1.sol
+  ```
+
+* **`results.csv`** (optional): `instance,reported_cut,time_to_best_s,total_time_s,seed,upper_bound`,
+  plus `time_to_target_s` and `qpu_time_s` if you have them.
+* **`trajectories/<instance>.traj`** (optional, recommended): one line `time_s cut` each time your best
+  cut improves. The leaderboard uses it to compute time-to-target (time to reach 99% of the target)
+  against the *current* target, so your TTT stays meaningful when someone later raises a best-known value.
+* Validate with `python -m qvsc.maxcut.leaderboard --check`. Do not edit `problems/maxcut/LEADERBOARD.md`,
+  `docs/data/` or `problems/maxcut/instances/index.csv`.
+
+For annealers: hardware-native instances (`pegasus`, `zephyr`, `heavyhex`, and the planted instances
+on those graphs) need no embedding; the unweighted topologies are in `problems/maxcut/instances/topologies/`.
+For QAOA: the `qaoa` and `gate-scale` tracks hold what fits on today's gate-based devices.
 
 ## Rules of thumb for a fair comparison
 

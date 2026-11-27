@@ -15,13 +15,16 @@ jobs:
           python-version: "3.12"
       - name: Unit tests
         run: python -m unittest discover -s tests -v
-      - name: Verify every solution
+      - name: Verify every solution (MIS)
         run: python -m qvsc.mis.leaderboard --check
+      - name: Verify every solution (Max-Cut)
+        run: python -m qvsc.maxcut.leaderboard --check
       - name: Rebuild leaderboard (main only)
         if: github.event_name == 'push'
         run: |
           python -m qvsc.mis.leaderboard
+          python -m qvsc.maxcut.leaderboard
           git config user.name "qvsc-bot"
           git config user.email "qvsc-bot@users.noreply.github.com"
-          git add problems/mis/LEADERBOARD.md docs/data problems/mis/instances/index.csv
+          git add problems/mis/LEADERBOARD.md problems/maxcut/LEADERBOARD.md docs/data problems/mis/instances/index.csv problems/maxcut/instances/index.csv
           git diff --cached --quiet || git commit -m "Rebuild leaderboard" && git push

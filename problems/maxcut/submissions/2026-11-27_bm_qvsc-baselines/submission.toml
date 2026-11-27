@@ -1,0 +1,10 @@
+[submission]
+method = "Burer-Monteiro SDP + rounding"
+authors = ["QvsC maintainers"]
+paradigm = "classical"   # classical | quantum | hybrid
+date = "2026-11-27"
+hardware = "Intel(R) Xeon(R) Processor @ 2.10GHz, 1 thread"
+time_limit_s = 10   # wall-clock budget per instance (0 = run to completion)
+code = "https://github.com/qvsc-bench/qvsc/tree/main/problems/maxcut/baselines"
+description = "Low-rank SDP relaxation solved by the mixing method, Goemans-Williamson hyperplane rounding and 1-flip local search, restarted until the budget ends."
+reference = "https://doi.org/10.1137/S1052623400382467"

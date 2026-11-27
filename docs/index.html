@@ -35,6 +35,8 @@ h2{font-size:1.4rem;margin:0 0 1rem;letter-spacing:-.01em}
 .tabs{display:flex;flex-wrap:wrap;gap:.4rem;margin:0 0 .9rem}
 .tabs button{font:inherit;font-size:.9rem;border:1px solid var(--line);background:#fff;border-radius:999px;padding:.3rem .8rem;cursor:pointer;color:var(--muted)}
 .tabs button[aria-selected=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tabs.problems button{font-weight:600;border-radius:8px}
+.tabs.problems button[aria-selected=true]{background:var(--q);border-color:var(--q)}
 .tablewrap{overflow-x:auto}
 table{border-collapse:collapse;width:100%;font-size:.93rem}
 th,td{padding:.5rem .6rem;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
@@ -81,6 +83,10 @@ footer a{color:var(--muted)}
 
 <section id="leaderboard"><div class="wrap">
   <h2>Leaderboard: <span id="lb-problem">Maximum Independent Set</span></h2>
+  <div class="tabs problems" role="tablist" id="ptabs">
+    <button role="tab" data-p="mis" aria-selected="true">Maximum Independent Set</button>
+    <button role="tab" data-p="maxcut">Max-Cut</button>
+  </div>
   <div class="versus" id="versus">
     <div class="side c"><div class="lab">Best classical</div><div class="big" id="vs-c">…</div><div class="sub" id="vs-c-sub"></div></div>
     <div class="vs-mid">vs</div>
@@ -88,20 +94,17 @@ footer a{color:var(--muted)}
   </div>
   <div class="tabs" role="tablist" id="tabs"></div>
   <div class="tablewrap"><table>
-    <thead><tr><th>#</th><th>Method</th><th>Paradigm</th><th class="num">Hits</th><th class="num">Attempted</th><th class="num">Mean gap</th><th class="num">Time limit (s)</th><th>Hardware</th></tr></thead>
-    <tbody id="rows"><tr class="empty"><td colspan="8">Loading…</td></tr></tbody>
+    <thead id="head"></thead>
+    <tbody id="rows"><tr class="empty"><td colspan="9">Loading…</td></tr></tbody>
   </table></div>
-  <p class="note">Hits count instances where the solution matches the best-known value. Mean gap is the average relative
-  distance from the best-known value over the attempted instances. Time limits and hardware differ between entries: read them before comparing.
-  Per-instance results: <a href="https://github.com/qvsc-bench/qvsc/blob/main/problems/mis/LEADERBOARD.md">LEADERBOARD.md</a> ·
-  raw data: <a href="data/mis.json">mis.json</a>.</p>
+  <p class="note" id="lb-note"></p>
 </div></section>
 
 <section id="problems"><div class="wrap">
   <h2>Problems</h2>
   <div class="grid">
-    <div class="card"><div class="status live">Live</div><h3>Maximum Independent Set</h3><p>143 instances. Native problem of Rydberg-atom processors; one-line QUBO for annealers and QAOA.</p></div>
-    <div class="card"><div class="status planned">Planned</div><h3>Max-Cut</h3><p>The standard QAOA benchmark.</p></div>
+    <div class="card"><div class="status live">Live</div><h3>Maximum Independent Set</h3><p>143 instances. Native problem of Rydberg-atom processors on unit-disk graphs; one-line QUBO for annealers and QAOA.</p></div>
+    <div class="card"><div class="status live">Live</div><h3>Max-Cut</h3><p>401 instances: G-set, Biq Mac, MQLib, D-Wave and IBM hardware graphs, QAOA families, and planted instances with a known optimum.</p></div>
     <div class="card"><div class="status planned">Planned</div><h3>K-SAT</h3><p>Random instances around the hardness threshold.</p></div>
     <div class="card"><div class="status planned">Planned</div><h3>LABS</h3><p>Low-autocorrelation binary sequences, used in recent quantum-advantage claims.</p></div>
   </div>
@@ -111,9 +114,9 @@ footer a{color:var(--muted)}
   <h2>Submit a result</h2>
   <p>Results enter through a GitHub pull request. Quantum and hybrid entries are especially welcome; so are stronger classical solvers, which raise the bar for everyone.</p>
   <ol class="steps">
-    <li>Fork <a href="https://github.com/qvsc-bench/qvsc">qvsc-bench/qvsc</a> and add a folder under <code>problems/mis/submissions/</code>.</li>
+    <li>Fork <a href="https://github.com/qvsc-bench/qvsc">qvsc-bench/qvsc</a> and add a folder under <code>problems/mis/submissions/</code> or <code>problems/maxcut/submissions/</code>.</li>
     <li>Put in it a <code>submission.toml</code> (method, paradigm, hardware, time budget) and one <code>.sol</code> file per instance you solved.</li>
-    <li>Run <code>python -m qvsc.mis.leaderboard --check</code> and open the pull request. On merge, the leaderboard updates itself.</li>
+    <li>Run <code>python -m qvsc.mis.leaderboard --check</code> (or <code>qvsc.maxcut</code>) and open the pull request. On merge, the leaderboard updates itself.</li>
   </ol>
   <a class="btn primary" href="https://github.com/qvsc-bench/qvsc/blob/main/CONTRIBUTING.md">Submission guide</a>
   <a class="btn secondary" href="https://github.com/qvsc-bench/qvsc">View on GitHub</a>
@@ -122,45 +125,80 @@ footer a{color:var(--muted)}
 
 <footer><div class="wrap">
   QvsC: Quantum vs Classical Optimization Benchmark · code MIT, instances under their sources' licences ·
+  Max-Cut instances from G-set, Biq Mac and MQLib ·
   MIS quantum track from Marino, Buffoni &amp; Zavalnij, <a href="https://doi.org/10.1038/s42005-026-02606-7">Commun. Phys. 9, 239 (2026)</a>
 </div></footer>
 
 <script>
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-let DATA = null, TRACK = "all";
+const CACHE = {};
+let PROBLEM = "mis", TRACK = "all";
+
+const VIEWS = {
+  mis: {
+    head: ["#", "Method", "Paradigm", "Hits", "Attempted", "Mean gap", "Time limit (s)", "Hardware"],
+    num: [false, false, false, true, true, true, true, false],
+    row: r => [esc(r.method), pill(r.paradigm), r.hits, `${r.attempted}/${r.total}`, `${r.gap.toFixed(2)}%`, esc(r.time_limit), esc(r.hardware)],
+    score: r => `${r.hits} / ${r.total}`,
+    sub: r => `instances at best known · ${r.method}, ${r.time_limit} s per instance`,
+    note: `Hits count instances where the solution matches the best-known value. Mean gap is the average relative
+      distance from the best-known value over the attempted instances. Time limits and hardware differ between entries: read them before comparing.
+      Per-instance results: <a href="https://github.com/qvsc-bench/qvsc/blob/main/problems/mis/LEADERBOARD.md">LEADERBOARD.md</a> ·
+      raw data: <a href="data/mis.json">mis.json</a>.`
+  },
+  maxcut: {
+    head: ["#", "Method", "Paradigm", "Hits", "At 99%", "Attempted", "Mean ratio", "TTT99 (s)", "Time limit (s)", "Hardware"],
+    num: [false, false, false, true, true, true, true, true, true, false],
+    row: r => [esc(r.method), pill(r.paradigm), r.hits, r.at99, `${r.attempted}/${r.total}`, `${r.ratio.toFixed(3)}%`,
+               r.ttt99 == null ? "–" : Number(r.ttt99).toPrecision(3), esc(r.time_limit), esc(r.hardware)],
+    score: r => `${r.hits} / ${r.total}`,
+    sub: r => `instances at target · mean ratio ${r.ratio.toFixed(2)}% · ${r.method}, ${r.time_limit} s per instance`,
+    note: `The target of an instance is the larger of the best cut verified here and the best value in the literature
+      (for planted instances: the optimum, known by construction). Hits: cut reaches the target. Mean ratio: average cut / target.
+      At 99% and TTT99: instances within 1% of the target, and the median time at which the run first got there (self-reported).
+      Per-instance results: <a href="https://github.com/qvsc-bench/qvsc/blob/main/problems/maxcut/LEADERBOARD.md">LEADERBOARD.md</a> ·
+      raw data: <a href="data/maxcut.json">maxcut.json</a>.`
+  }
+};
+const pill = p => `<span class="pill ${esc(p)}">${esc(p)}</span>`;
 
 function render() {
-  const rows = DATA.tracks[TRACK] || [];
-  const tb = document.getElementById("rows");
-  tb.innerHTML = rows.length ? rows.map((r, i) => `<tr><td>${i + 1}</td><td>${esc(r.method)}</td>
-    <td><span class="pill ${esc(r.paradigm)}">${esc(r.paradigm)}</span></td>
-    <td class="num">${r.hits}</td><td class="num">${r.attempted}/${r.total}</td>
-    <td class="num">${r.gap.toFixed(2)}%</td><td class="num">${esc(r.time_limit)}</td><td>${esc(r.hardware)}</td></tr>`).join("")
-    : `<tr class="empty"><td colspan="8">No submissions on this track yet.</td></tr>`;
-  if (!rows.some(r => r.paradigm !== "classical"))
-    tb.insertAdjacentHTML("beforeend", `<tr class="empty"><td colspan="8">No quantum or hybrid submission yet on this track. <a href="#submit">Be the first.</a></td></tr>`);
+  const D = CACHE[PROBLEM], V = VIEWS[PROBLEM];
+  document.getElementById("lb-problem").textContent = D.title;
+  document.getElementById("lb-note").innerHTML = V.note;
+  document.querySelectorAll("#ptabs button").forEach(b => b.setAttribute("aria-selected", b.dataset.p === PROBLEM));
+  const titles = D.track_titles || {};
+  const tracks = Object.keys(D.tracks).filter(t => D.tracks[t].length);
+  if (!tracks.includes(TRACK)) TRACK = tracks[0] || "all";
+  document.getElementById("tabs").innerHTML = tracks
+    .map(t => `<button role="tab" data-t="${esc(t)}" aria-selected="${t === TRACK}">${esc(titles[t] || t)}</button>`).join("");
+  document.querySelectorAll("#tabs button").forEach(b => b.onclick = () => { TRACK = b.dataset.t; render(); });
+  document.getElementById("head").innerHTML = "<tr>" + V.head.map((h, i) => `<th${V.num[i] ? ' class="num"' : ""}>${h}</th>`).join("") + "</tr>";
 
-  const total = rows.length ? rows[0].total : 0;
+  const rows = D.tracks[TRACK] || [], cols = V.head.length;
+  const tb = document.getElementById("rows");
+  tb.innerHTML = rows.length ? rows.map((r, i) => "<tr>" + [i + 1, ...V.row(r)].map((c, j) => `<td${V.num[j] ? ' class="num"' : ""}>${c}</td>`).join("") + "</tr>").join("")
+    : `<tr class="empty"><td colspan="${cols}">No submissions on this track yet.</td></tr>`;
+  if (!rows.some(r => r.paradigm !== "classical"))
+    tb.insertAdjacentHTML("beforeend", `<tr class="empty"><td colspan="${cols}">No quantum or hybrid submission yet on this track. <a href="#submit">Be the first.</a></td></tr>`);
+
   const best = p => rows.find(r => p(r.paradigm));
   const c = best(p => p === "classical"), q = best(p => p !== "classical");
-  document.getElementById("vs-c").textContent = c ? `${c.hits} / ${total}` : "none yet";
-  document.getElementById("vs-c-sub").textContent = c ? `instances at best known · ${c.method}, ${c.time_limit} s per instance` : "";
-  document.getElementById("vs-q").textContent = q ? `${q.hits} / ${total}` : "none yet";
-  document.getElementById("vs-q-sub").innerHTML = q ? esc(`instances at best known · ${q.method}, ${q.time_limit} s per instance`)
-    : `No quantum or hybrid entry yet. <a href="#submit">Submit one.</a>`;
-  document.querySelectorAll("#tabs button").forEach(b => b.setAttribute("aria-selected", b.dataset.t === TRACK));
+  document.getElementById("vs-c").textContent = c ? V.score(c) : "none yet";
+  document.getElementById("vs-c-sub").textContent = c ? V.sub(c) : "";
+  document.getElementById("vs-q").textContent = q ? V.score(q) : "none yet";
+  document.getElementById("vs-q-sub").innerHTML = q ? esc(V.sub(q)) : `No quantum or hybrid entry yet. <a href="#submit">Submit one.</a>`;
 }
 
-fetch("data/mis.json").then(r => r.json()).then(d => {
-  DATA = d;
-  const titles = d.track_titles || {};
-  document.getElementById("tabs").innerHTML = Object.keys(d.tracks).filter(t => d.tracks[t].length)
-    .map(t => `<button role="tab" data-t="${esc(t)}">${esc(titles[t] || t)}</button>`).join("");
-  document.querySelectorAll("#tabs button").forEach(b => b.onclick = () => { TRACK = b.dataset.t; render(); });
-  render();
-}).catch(() => {
-  document.getElementById("rows").innerHTML = `<tr class="empty"><td colspan="8">Could not load the leaderboard data. See <a href="data/mis.json">mis.json</a>.</td></tr>`;
-});
+function show(problem) {
+  PROBLEM = problem;
+  if (CACHE[problem]) return render();
+  fetch(`data/${problem}.json`).then(r => r.json()).then(d => { CACHE[problem] = d; render(); }).catch(() => {
+    document.getElementById("rows").innerHTML = `<tr class="empty"><td colspan="9">Could not load the leaderboard data. See <a href="data/${problem}.json">${problem}.json</a>.</td></tr>`;
+  });
+}
+document.querySelectorAll("#ptabs button").forEach(b => b.onclick = () => { TRACK = "all"; show(b.dataset.p); });
+show(location.hash === "#maxcut" ? "maxcut" : "mis");
 </script>
 </body>
 </html>

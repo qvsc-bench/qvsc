@@ -1,6 +1,6 @@
 ## Submission
 
-- Problem (e.g. mis):
+- Problem (mis / maxcut):
 - Method:
 - Paradigm (classical / quantum / hybrid):
 - Instances attempted:
@@ -8,6 +8,6 @@
 
 ## Checklist
 
-- [ ] `python -m qvsc.mis.leaderboard --check` passes locally
+- [ ] `python -m qvsc.<problem>.leaderboard --check` passes locally
 - [ ] `submission.toml` states hardware and time limit
 - [ ] Code or paper link included (or a reason why not)

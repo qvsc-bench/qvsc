@@ -1,0 +1,10 @@
+[submission]
+method = "Simulated annealing"
+authors = ["QvsC maintainers"]
+paradigm = "classical"   # classical | quantum | hybrid
+date = "2026-11-27"
+hardware = "Intel(R) Xeon(R) Processor @ 2.10GHz, 1 thread"
+time_limit_s = 10   # wall-clock budget per instance (0 = run to completion)
+code = "https://github.com/qvsc-bench/qvsc/tree/main/problems/maxcut/baselines"
+description = "Metropolis 1-flip simulated annealing, geometric schedule scaled to the instance, restarts with doubled length until the budget ends."
+reference = "https://doi.org/10.1126/science.220.4598.671"
