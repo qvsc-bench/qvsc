@@ -1,0 +1,3109 @@
+{
+ "problem": "mis",
+ "title": "Maximum Independent Set",
+ "track_titles": {
+  "all": "All instances",
+  "quantum-scale": "Quantum-scale (n \u2264 128)",
+  "review-qbench": "Quantum benchmark set of Marino, Buffoni & Zavalnij (2026)",
+  "review-evil": "EVIL set"
+ },
+ "tracks": {
+  "all": [
+   {
+    "id": "2026-11-25_arw_ils_qvsc-baselines",
+    "method": "ARW iterated local search",
+    "paradigm": "classical",
+    "authors": "QvsC maintainers",
+    "hardware": "Intel(R) Xeon(R) Processor @ 2.10GHz, 1 thread",
+    "time_limit": 10,
+    "attempted": 143,
+    "total": 143,
+    "hits": 132,
+    "gap": 0.3177876425811758
+   },
+   {
+    "id": "2026-11-25_cpsat_qvsc-baselines",
+    "method": "OR-Tools CP-SAT (edge formulation)",
+    "paradigm": "classical",
+    "authors": "QvsC maintainers",
+    "hardware": "Intel(R) Xeon(R) Processor @ 2.10GHz, 4 CP-SAT threads",
+    "time_limit": 30,
+    "attempted": 138,
+    "total": 143,
+    "hits": 122,
+    "gap": 0.8363241314991393
+   },
+   {
+    "id": "2026-11-25_greedy_qvsc-baselines",
+    "method": "Minimum-degree greedy",
+    "paradigm": "classical",
+    "authors": "QvsC maintainers",
+    "hardware": "Intel(R) Xeon(R) Processor @ 2.10GHz, 1 thread",
+    "time_limit": 0,
+    "attempted": 143,
+    "total": 143,
+    "hits": 87,
+    "gap": 3.8446980066580663
+   }
+  ],
+  "quantum-scale": [
+   {
+    "id": "2026-11-25_arw_ils_qvsc-baselines",
+    "method": "ARW iterated local search",
+    "paradigm": "classical",
+    "authors": "QvsC maintainers",
+    "hardware": "Intel(R) Xeon(R) Processor @ 2.10GHz, 1 thread",
+    "time_limit": 10,
+    "attempted": 78,
+    "total": 78,
+    "hits": 78,
+    "gap": 0.0
+   },
+   {
+    "id": "2026-11-25_cpsat_qvsc-baselines",
+    "method": "OR-Tools CP-SAT (edge formulation)",
+    "paradigm": "classical",
+    "authors": "QvsC maintainers",
+    "hardware": "Intel(R) Xeon(R) Processor @ 2.10GHz, 4 CP-SAT threads",
+    "time_limit": 30,
+    "attempted": 78,
+    "total": 78,
+    "hits": 78,
+    "gap": 0.0
+   },
+   {
+    "id": "2026-11-25_greedy_qvsc-baselines",
+    "method": "Minimum-degree greedy",
+    "paradigm": "classical",
+    "authors": "QvsC maintainers",
+    "hardware": "Intel(R) Xeon(R) Processor @ 2.10GHz, 1 thread",
+    "time_limit": 0,
+    "attempted": 78,
+    "total": 78,
+    "hits": 59,
+    "gap": 2.168748853567518
+   }
+  ],
+  "review-qbench": [
+   {
+    "id": "2026-11-25_arw_ils_qvsc-baselines",
+    "method": "ARW iterated local search",
+    "paradigm": "classical",
+    "authors": "QvsC maintainers",
+    "hardware": "Intel(R) Xeon(R) Processor @ 2.10GHz, 1 thread",
+    "time_limit": 10,
+    "attempted": 61,
+    "total": 61,
+    "hits": 61,
+    "gap": 0.0
+   },
+   {
+    "id": "2026-11-25_cpsat_qvsc-baselines",
+    "method": "OR-Tools CP-SAT (edge formulation)",
+    "paradigm": "classical",
+    "authors": "QvsC maintainers",
+    "hardware": "Intel(R) Xeon(R) Processor @ 2.10GHz, 4 CP-SAT threads",
+    "time_limit": 30,
+    "attempted": 61,
+    "total": 61,
+    "hits": 61,
+    "gap": 0.0
+   },
+   {
+    "id": "2026-11-25_greedy_qvsc-baselines",
+    "method": "Minimum-degree greedy",
+    "paradigm": "classical",
+    "authors": "QvsC maintainers",
+    "hardware": "Intel(R) Xeon(R) Processor @ 2.10GHz, 1 thread",
+    "time_limit": 0,
+    "attempted": 61,
+    "total": 61,
+    "hits": 47,
+    "gap": 1.8980337317555724
+   }
+  ],
+  "review-evil": [
+   {
+    "id": "2026-11-25_arw_ils_qvsc-baselines",
+    "method": "ARW iterated local search",
+    "paradigm": "classical",
+    "authors": "QvsC maintainers",
+    "hardware": "Intel(R) Xeon(R) Processor @ 2.10GHz, 1 thread",
+    "time_limit": 10,
+    "attempted": 40,
+    "total": 40,
+    "hits": 40,
+    "gap": 0.0
+   },
+   {
+    "id": "2026-11-25_cpsat_qvsc-baselines",
+    "method": "OR-Tools CP-SAT (edge formulation)",
+    "paradigm": "classical",
+    "authors": "QvsC maintainers",
+    "hardware": "Intel(R) Xeon(R) Processor @ 2.10GHz, 4 CP-SAT threads",
+    "time_limit": 30,
+    "attempted": 40,
+    "total": 40,
+    "hits": 38,
+    "gap": 0.22083333333333335
+   },
+   {
+    "id": "2026-11-25_greedy_qvsc-baselines",
+    "method": "Minimum-degree greedy",
+    "paradigm": "classical",
+    "authors": "QvsC maintainers",
+    "hardware": "Intel(R) Xeon(R) Processor @ 2.10GHz, 1 thread",
+    "time_limit": 0,
+    "attempted": 40,
+    "total": 40,
+    "hits": 25,
+    "gap": 1.2727182539682542
+   }
+  ]
+ },
+ "instances": {
+  "a265032_1et-128": {
+   "name": "a265032_1et-128",
+   "family": "codes",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 128,
+   "m": 672,
+   "best_known": 28,
+   "status": "optimal",
+   "upper_bound": 28,
+   "record_source": "2026-11-25_arw_ils_misbench-baselines",
+   "sha256": "7017403a05bc8b6f8e5a87228786141d10c7a336c381a63b327321fd6fdf9755",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "see upstream"
+  },
+  "a265032_1et-64": {
+   "name": "a265032_1et-64",
+   "family": "codes",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 64,
+   "m": 264,
+   "best_known": 18,
+   "status": "optimal",
+   "upper_bound": 18,
+   "record_source": "2026-11-25_arw_ils_misbench-baselines",
+   "sha256": "6fcaeed93369d06047dbb3c086696d1b9bef1d08a600439cf930e422a29448a1",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "see upstream"
+  },
+  "a265032_1tc-128": {
+   "name": "a265032_1tc-128",
+   "family": "codes",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 128,
+   "m": 512,
+   "best_known": 38,
+   "status": "optimal",
+   "upper_bound": 38,
+   "record_source": "2026-11-25_arw_ils_misbench-baselines",
+   "sha256": "7f6dcc1afa75c6a45ff5fb8238a421363764f0934bf01f263fb061a9dc637831",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "see upstream"
+  },
+  "a265032_1tc-64": {
+   "name": "a265032_1tc-64",
+   "family": "codes",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 64,
+   "m": 192,
+   "best_known": 20,
+   "status": "optimal",
+   "upper_bound": 20,
+   "record_source": "2026-11-25_arw_ils_misbench-baselines",
+   "sha256": "021aa8ee804b4fcb1120b16e79c4132eaece5db4f19e7533b27cc04e2de5ea35",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "see upstream"
+  },
+  "hamming6-2-comp": {
+   "name": "hamming6-2-comp",
+   "family": "dimacs-comp",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 64,
+   "m": 192,
+   "best_known": 32,
+   "status": "optimal",
+   "upper_bound": 32,
+   "record_source": "2026-11-25_arw_ils_misbench-baselines",
+   "sha256": "18b8489ce8dd8d7516ebeac050e6b9a4509b289aec09501134e57a90702e08b8",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "see upstream"
+  },
+  "hamming6-4-comp": {
+   "name": "hamming6-4-comp",
+   "family": "dimacs-comp",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 64,
+   "m": 1312,
+   "best_known": 4,
+   "status": "optimal",
+   "upper_bound": 4,
+   "record_source": "2026-11-25_arw_ils_misbench-baselines",
+   "sha256": "acaf6f6f15051430fa236191440d39db700a4ae69d0f171cea5fd7ec76fe402b",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "see upstream"
+  },
+  "johnson16-2-4-comp": {
+   "name": "johnson16-2-4-comp",
+   "family": "dimacs-comp",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 120,
+   "m": 1680,
+   "best_known": 8,
+   "status": "optimal",
+   "upper_bound": 8,
+   "record_source": "2026-11-25_arw_ils_misbench-baselines",
+   "sha256": "b62731890a23259c8accc5c6d183c222ad529273cf211c6cb92c32bab501239b",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "see upstream"
+  },
+  "johnson8-4-4-comp": {
+   "name": "johnson8-4-4-comp",
+   "family": "dimacs-comp",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 70,
+   "m": 560,
+   "best_known": 14,
+   "status": "optimal",
+   "upper_bound": 14,
+   "record_source": "2026-11-25_arw_ils_misbench-baselines",
+   "sha256": "fc65fab9435f9c54bf474c6f1eb3443652b3f416035826ff1afe43338033e5d0",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "see upstream"
+  },
+  "evil-N100-p98-g136x10": {
+   "name": "evil-N100-p98-g136x10",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 100,
+   "m": 56,
+   "best_known": 80,
+   "status": "optimal",
+   "upper_bound": 80,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "511d68ea884ef96ce1931ee95297f1fba8315ba7b428019ded93c10dbafd60ae",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N100-p98-g150x10": {
+   "name": "evil-N100-p98-g150x10",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 100,
+   "m": 27,
+   "best_known": 90,
+   "status": "optimal",
+   "upper_bound": 90,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "fd193b97f26d7229edd738ed365fe76784adb925425e4c0beadefe9fb382aa68",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N100-p98-g50634x5": {
+   "name": "evil-N100-p98-g50634x5",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 100,
+   "m": 107,
+   "best_known": 50,
+   "status": "optimal",
+   "upper_bound": 50,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "4b8835cdaf36d5d4f3122285ea20b784a8617782073558c2824b854ec8b56e60",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N100-p98-myc5x20": {
+   "name": "evil-N100-p98-myc5x20",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 100,
+   "m": 189,
+   "best_known": 40,
+   "status": "optimal",
+   "upper_bound": 40,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "df798c5d65c1243fbfe7506668d974d195258a4a6d9484e0b22e3703c246b46e",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N100-p98-s3m25x4": {
+   "name": "evil-N100-p98-s3m25x4",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 100,
+   "m": 672,
+   "best_known": 16,
+   "status": "optimal",
+   "upper_bound": 16,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "30d044b3f94f9b5d0c2124dd8051164173630a35d6ad93b9943029346a2656db",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N108-p98-chv12x9": {
+   "name": "evil-N108-p98-chv12x9",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 108,
+   "m": 492,
+   "best_known": 18,
+   "status": "optimal",
+   "upper_bound": 18,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "d05a08a770863f0d519f31581808b4d6fdfee7ae7b4739d1816ccd1fac860d3b",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N108-p98-g33896x6": {
+   "name": "evil-N108-p98-g33896x6",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 108,
+   "m": 524,
+   "best_known": 42,
+   "status": "optimal",
+   "upper_bound": 42,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "f474330fe7ad5eb5a1cf5a88cf97a2a102be9697882d49d5288f2940ead44473",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N108-p98-g33918x6": {
+   "name": "evil-N108-p98-g33918x6",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 108,
+   "m": 459,
+   "best_known": 42,
+   "status": "optimal",
+   "upper_bound": 42,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "7b504884a0c22ae10b34676c7f9318a2c8379d94654bcfc86ece84cf46afbd54",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N110-p98-g32559x10": {
+   "name": "evil-N110-p98-g32559x10",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 110,
+   "m": 106,
+   "best_known": 80,
+   "status": "optimal",
+   "upper_bound": 80,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "713ef9c549a5136b06c5434e06b1f05858b5bd9324907b0f7aceab68466fe21b",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N110-p98-g32565x10": {
+   "name": "evil-N110-p98-g32565x10",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 110,
+   "m": 191,
+   "best_known": 70,
+   "status": "optimal",
+   "upper_bound": 70,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "88fe16587feadea31588eb3eab3677ca86b252ad6e9319e543912191eb1e75bb",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N114-p98-g33920x6": {
+   "name": "evil-N114-p98-g33920x6",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 114,
+   "m": 562,
+   "best_known": 48,
+   "status": "optimal",
+   "upper_bound": 48,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "8ef6835220401ece5aca07994e2477e2b210c500e8408626fb354f8c34c1114a",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N115-p98-myc23x5": {
+   "name": "evil-N115-p98-myc23x5",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 115,
+   "m": 1015,
+   "best_known": 10,
+   "status": "optimal",
+   "upper_bound": 10,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "138397b493d47097c86f4022199ebe5eadf2bea7a768ec0141da219b3a1ec7a1",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N120-p98-chv12x10": {
+   "name": "evil-N120-p98-chv12x10",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-evil",
+    "review-qbench"
+   ],
+   "n": 120,
+   "m": 545,
+   "best_known": 20,
+   "status": "optimal",
+   "upper_bound": 20,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "7b23d0699279e6ed0fe9f1df11d2161656646b489de116d4706699d1f896b109",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N120-p98-g136x12": {
+   "name": "evil-N120-p98-g136x12",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 120,
+   "m": 83,
+   "best_known": 96,
+   "status": "optimal",
+   "upper_bound": 96,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "d661d00cf35fd793cfd80b7434b108774a68fda5363ad29c04910cea83d5e23b",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N120-p98-g50634x6": {
+   "name": "evil-N120-p98-g50634x6",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 120,
+   "m": 149,
+   "best_known": 60,
+   "status": "optimal",
+   "upper_bound": 60,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "3f5efc190017e335afd2e1ca6e85b486c2138b659a3b97672c87d0489ea9c859",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N120-p98-myc5x24": {
+   "name": "evil-N120-p98-myc5x24",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-evil",
+    "review-qbench"
+   ],
+   "n": 120,
+   "m": 236,
+   "best_known": 48,
+   "status": "optimal",
+   "upper_bound": 48,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "72834eb25421a056d5469aec505988df7201678383123a039a3febfad3c6ccf3",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N121-p98-myc11x11": {
+   "name": "evil-N121-p98-myc11x11",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-evil",
+    "review-qbench"
+   ],
+   "n": 121,
+   "m": 508,
+   "best_known": 22,
+   "status": "optimal",
+   "upper_bound": 22,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "c79425a5c79008b717d35efc22d36b5bb9223511b755d505a20217167d555297",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N125-p98-s3m25x5": {
+   "name": "evil-N125-p98-s3m25x5",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-evil",
+    "review-qbench"
+   ],
+   "n": 125,
+   "m": 873,
+   "best_known": 20,
+   "status": "optimal",
+   "upper_bound": 20,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "85a9cfe4278a0a844623bc27d26785e5bb30bd09b514607f62777035b0eb05f6",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N126-p98-g33896x7": {
+   "name": "evil-N126-p98-g33896x7",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 126,
+   "m": 612,
+   "best_known": 49,
+   "status": "optimal",
+   "upper_bound": 49,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "8b42ee9a722892ad1b77f81aac641e4f592d4bd1ca06dec81d65a893c2ef5159",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N126-p98-g33918x7": {
+   "name": "evil-N126-p98-g33918x7",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 126,
+   "m": 553,
+   "best_known": 49,
+   "status": "optimal",
+   "upper_bound": 49,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "a5fabfa6623baae67c546b17b84272e2c27245551b2dba94377c14a243f75f12",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N138-p98-myc23x6": {
+   "name": "evil-N138-p98-myc23x6",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 138,
+   "m": 1242,
+   "best_known": 12,
+   "status": "optimal",
+   "upper_bound": 12,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "db4786865a761e1f374c0fd9bcc181abf263a9c19ab7e686bf1c40b0fd0d47e2",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N150-p98-myc5x30": {
+   "name": "evil-N150-p98-myc5x30",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 150,
+   "m": 338,
+   "best_known": 60,
+   "status": "optimal",
+   "upper_bound": 60,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "50f7b4d06a5e60603da01829a3a68af6c7f3610263e62b92e824339461d5f7fb",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N150-p98-s3m25x6": {
+   "name": "evil-N150-p98-s3m25x6",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 150,
+   "m": 1102,
+   "best_known": 24,
+   "status": "optimal",
+   "upper_bound": 24,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "32b26aac303133e0296040699ded65adeedc51faf87511b2872c593e374ec577",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N154-p98-myc11x14": {
+   "name": "evil-N154-p98-myc11x14",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 154,
+   "m": 701,
+   "best_known": 28,
+   "status": "optimal",
+   "upper_bound": 28,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "b16342346cd211b7220eedc63c41f2b36e85e319daa75a41e96b2b6f79deb92c",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N180-p98-chv12x15": {
+   "name": "evil-N180-p98-chv12x15",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 180,
+   "m": 944,
+   "best_known": 30,
+   "status": "optimal",
+   "upper_bound": 30,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "7eec03ccc12e9293d1cfb43b304469a314c3beb203c870861197f59e6b118113",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N180-p98-myc5x36": {
+   "name": "evil-N180-p98-myc5x36",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 180,
+   "m": 439,
+   "best_known": 72,
+   "status": "optimal",
+   "upper_bound": 72,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "224e80854a310a73a01f3a7030ccffcc4661d552ffa564c6ae9ad8b45dfcb004",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N184-p98-myc23x8": {
+   "name": "evil-N184-p98-myc23x8",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 184,
+   "m": 1764,
+   "best_known": 16,
+   "status": "optimal",
+   "upper_bound": 16,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "6f4c55e942832355e8020fe589bbff72275697ab52dea04703eb120cef5fa97e",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N187-p98-myc11x17": {
+   "name": "evil-N187-p98-myc11x17",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 187,
+   "m": 901,
+   "best_known": 34,
+   "status": "optimal",
+   "upper_bound": 34,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "1d5dda5379780349307ce14f14763ef52653191448fb02bba4d425e732dd7ea5",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N200-p98-s3m25x8": {
+   "name": "evil-N200-p98-s3m25x8",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 200,
+   "m": 1550,
+   "best_known": 32,
+   "status": "optimal",
+   "upper_bound": 32,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "1e706aa5f262d327d8d1073cd22c2f7e8d715ee95c0e5221de10b4db34cb5743",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N210-p98-myc5x42": {
+   "name": "evil-N210-p98-myc5x42",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 210,
+   "m": 541,
+   "best_known": 84,
+   "status": "optimal",
+   "upper_bound": 84,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "caebd69bd5ef4b62d29e52dd602b7b0b5cd5568acd63b10a30234f37b560682a",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N220-p98-myc11x20": {
+   "name": "evil-N220-p98-myc11x20",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 220,
+   "m": 1130,
+   "best_known": 40,
+   "status": "optimal",
+   "upper_bound": 40,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "096800bb0c31737c728fca47781c77fdb81b209b508c9fc7e805fc0edca59138",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N230-p98-myc23x10": {
+   "name": "evil-N230-p98-myc23x10",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 230,
+   "m": 2263,
+   "best_known": 20,
+   "status": "optimal",
+   "upper_bound": 20,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "4b298194ac4df531f8a3786a6c44de1648012a79e6e54e302f2b77c1481e408d",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N240-p98-chv12x20": {
+   "name": "evil-N240-p98-chv12x20",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 240,
+   "m": 1352,
+   "best_known": 40,
+   "status": "optimal",
+   "upper_bound": 40,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "59fa5d506babe29c6cbc55d383ddaa96b9d35bf0cfc7a9003909fe7d7c6a07f8",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N240-p98-myc5x48": {
+   "name": "evil-N240-p98-myc5x48",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 240,
+   "m": 718,
+   "best_known": 96,
+   "status": "optimal",
+   "upper_bound": 96,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "8d70a4338bf4cdc08cea94343396dc06a4f35d7a4fdf65b4318576a35c0109ed",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N250-p98-s3m25x10": {
+   "name": "evil-N250-p98-s3m25x10",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 250,
+   "m": 2050,
+   "best_known": 40,
+   "status": "optimal",
+   "upper_bound": 40,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "32b0efab42888d621c55e68ed03c43c0fac580226a5378eb456a1fe19c8da187",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N253-p98-myc11x23": {
+   "name": "evil-N253-p98-myc11x23",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 253,
+   "m": 1456,
+   "best_known": 46,
+   "status": "optimal",
+   "upper_bound": 46,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "6dd900ff6e4d96b80442475b20309d6cc6e7f3de437ba11171100576ac489570",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N300-p98-myc5x60": {
+   "name": "evil-N300-p98-myc5x60",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 300,
+   "m": 1033,
+   "best_known": 120,
+   "status": "optimal",
+   "upper_bound": 120,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "d149dbfa82e5dfdbc50c3eb2a53a8f7b7cdb8a1304bea567859f66d25a567945",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N330-p98-myc11x30": {
+   "name": "evil-N330-p98-myc11x30",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 330,
+   "m": 2035,
+   "best_known": 60,
+   "status": "optimal",
+   "upper_bound": 60,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "cbd04de1b0b36c14e9534e3dd3b293d16ed8da570d53d480a1560ab5bfbd8173",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N345-p98-myc23x15": {
+   "name": "evil-N345-p98-myc23x15",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 345,
+   "m": 3867,
+   "best_known": 30,
+   "status": "optimal",
+   "upper_bound": 30,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "c9fabf3682fa599c8fd65d2ae81bf9fb1c4704697faf21231a73affc4e3d4d58",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N360-p98-chv12x30": {
+   "name": "evil-N360-p98-chv12x30",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 360,
+   "m": 2378,
+   "best_known": 60,
+   "status": "optimal",
+   "upper_bound": 60,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "348f4ac9b7711f0250172e1b2b96f262e2efef79f612446e12cf0ba949bb3835",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N375-p98-s3m25x15": {
+   "name": "evil-N375-p98-s3m25x15",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 375,
+   "m": 3613,
+   "best_known": 60,
+   "status": "optimal",
+   "upper_bound": 60,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "c8bafcd032a5cac24b25952a310bbb191a9f9e6cd4a0e3d405e198137338aae5",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N400-p98-myc5x80": {
+   "name": "evil-N400-p98-myc5x80",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 400,
+   "m": 1662,
+   "best_known": 160,
+   "status": "optimal",
+   "upper_bound": 160,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "09ac2fc9656ff13edb6995ccd00ceb26792b3c538c41dc19be33b860b8d90e00",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N440-p98-myc11x40": {
+   "name": "evil-N440-p98-myc11x40",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 440,
+   "m": 3201,
+   "best_known": 80,
+   "status": "optimal",
+   "upper_bound": 80,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "27c0cff8a9da67108894012135754eb79dde54c7a9f6886ebc48dfc464485302",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N460-p98-myc23x20": {
+   "name": "evil-N460-p98-myc23x20",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 460,
+   "m": 5664,
+   "best_known": 40,
+   "status": "optimal",
+   "upper_bound": 40,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "5223511f055009fd4beb8d7cc557ca616eccb88e4afecaac21dd6820be69450f",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N480-p98-chv12x40": {
+   "name": "evil-N480-p98-chv12x40",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 480,
+   "m": 3845,
+   "best_known": 80,
+   "status": "optimal",
+   "upper_bound": 80,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "93955ca214cf6d220b92ce30b097fc08fc0c79bbf96acc58fcb4ee6ad678a658",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N50-p98-s3m25x2": {
+   "name": "evil-N50-p98-s3m25x2",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 50,
+   "m": 315,
+   "best_known": 8,
+   "status": "optimal",
+   "upper_bound": 8,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "9141ad14031064a4fdf861888a7829ca00d770bb8fd497ed721141e5f0021d7e",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N500-p98-myc5x100": {
+   "name": "evil-N500-p98-myc5x100",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 500,
+   "m": 2509,
+   "best_known": 200,
+   "status": "optimal",
+   "upper_bound": 200,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "66b4166ec346791939f8ec071e82703f6768dffb6472f8d5d3f767a56ceee857",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N500-p98-s3m25x20": {
+   "name": "evil-N500-p98-s3m25x20",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 500,
+   "m": 5329,
+   "best_known": 80,
+   "status": "optimal",
+   "upper_bound": 80,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "5d15e0337fc0ef3383c09d3fc27921d9bced282b56add0d4ecb02692a23a91fe",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N55-p98-myc11x5": {
+   "name": "evil-N55-p98-myc11x5",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 55,
+   "m": 197,
+   "best_known": 10,
+   "status": "optimal",
+   "upper_bound": 10,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "eedacd9061a000e5a6ebf195f244d54b2fe3607ef92e2e1db5d74e915e7483c1",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N550-p98-myc11x50": {
+   "name": "evil-N550-p98-myc11x50",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 550,
+   "m": 4592,
+   "best_known": 100,
+   "status": "optimal",
+   "upper_bound": 100,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "e073bae46ffe690fcf2ecc9fb4cd28180af71243f5912bb74e451544e9988a73",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N575-p98-myc23x25": {
+   "name": "evil-N575-p98-myc23x25",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 575,
+   "m": 7639,
+   "best_known": 50,
+   "status": "optimal",
+   "upper_bound": 50,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "a3079109219b64e3b1efc735ba96d7072078e3e240edb0f0126cae5a63400339",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N60-p98-chv12x5": {
+   "name": "evil-N60-p98-chv12x5",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 60,
+   "m": 245,
+   "best_known": 10,
+   "status": "optimal",
+   "upper_bound": 10,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "68e85b31b866b3d731c9de9ccf3393bc7876fb1bf1277abcc84e70d443ca5b1f",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N60-p98-g136x6": {
+   "name": "evil-N60-p98-g136x6",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 60,
+   "m": 28,
+   "best_known": 48,
+   "status": "optimal",
+   "upper_bound": 48,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "b3e1bfde4f2403ef8d074c1d5a8ddf6ebcc2fa4f15a17e81d01844e83a558539",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N60-p98-g150x6": {
+   "name": "evil-N60-p98-g150x6",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 60,
+   "m": 11,
+   "best_known": 54,
+   "status": "optimal",
+   "upper_bound": 54,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "b7387c0b88ced28067d5d0dfd137404fa1f51acf68d5a889f5f953c3db8960f2",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N60-p98-g50634x3": {
+   "name": "evil-N60-p98-g50634x3",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 60,
+   "m": 50,
+   "best_known": 30,
+   "status": "optimal",
+   "upper_bound": 30,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "518ec546393585e26c5db3df47f7e403f7b672fc6055c8dbde2d886482a46791",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N60-p98-myc5x12": {
+   "name": "evil-N60-p98-myc5x12",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 60,
+   "m": 90,
+   "best_known": 24,
+   "status": "optimal",
+   "upper_bound": 24,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "4c02a12d0c7f512510ccc7f0a8004ade317ea64ee701c201288e76e725769154",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N600-p98-myc5x120": {
+   "name": "evil-N600-p98-myc5x120",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 600,
+   "m": 3663,
+   "best_known": 240,
+   "status": "optimal",
+   "upper_bound": 240,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "e97c2afe17482842690b8b63de68f872dd40fe472e743192afd44cd0c1ee764e",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N625-p98-s3m25x25": {
+   "name": "evil-N625-p98-s3m25x25",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 625,
+   "m": 7398,
+   "best_known": 100,
+   "status": "optimal",
+   "upper_bound": 100,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "a048856f26046f46b85061ee9c0c280d791a7279a4fa3a4be7ddb80475f62736",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N66-p98-g32559x6": {
+   "name": "evil-N66-p98-g32559x6",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 66,
+   "m": 50,
+   "best_known": 48,
+   "status": "optimal",
+   "upper_bound": 48,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "6a5bc541f392c1cbc24c39aaf801c159cc3444efdfef7b1ce2fb700ba35e2394",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N66-p98-g32565x6": {
+   "name": "evil-N66-p98-g32565x6",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 66,
+   "m": 86,
+   "best_known": 42,
+   "status": "optimal",
+   "upper_bound": 42,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "93f9ddbe40ba812ca2d6634a7fbaf7b233c8933b57bd948d88f1384d7273f1f5",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N660-p98-myc11x60": {
+   "name": "evil-N660-p98-myc11x60",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 660,
+   "m": 6302,
+   "best_known": 120,
+   "status": "optimal",
+   "upper_bound": 120,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "49115b37a3d669ee5da9e3ee928a2ba38c6b9485032e8ab8bf29526c9befb7ad",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N69-p98-myc23x3": {
+   "name": "evil-N69-p98-myc23x3",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 69,
+   "m": 587,
+   "best_known": 6,
+   "status": "optimal",
+   "upper_bound": 6,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "46eb39f366d511baf9b0aa9c818c59ce45ecd040139db87038d4f9dae8706e73",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N690-p98-myc23x30": {
+   "name": "evil-N690-p98-myc23x30",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 690,
+   "m": 10078,
+   "best_known": 60,
+   "status": "optimal",
+   "upper_bound": 60,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "e4a7ad2fd9b977d3243b7d39861dda8180a90e21bde9cc50fe21347c6c1c3d59",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N700-p98-myc5x140": {
+   "name": "evil-N700-p98-myc5x140",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 700,
+   "m": 4785,
+   "best_known": 280,
+   "status": "optimal",
+   "upper_bound": 280,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "9e4fb61c036e88e444dd372893c07accd68f71a2fbac3fafddb35d55200be670",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N72-p98-chv12x6": {
+   "name": "evil-N72-p98-chv12x6",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 72,
+   "m": 306,
+   "best_known": 12,
+   "status": "optimal",
+   "upper_bound": 12,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "c7375bd53c6b9cad6349646b98e3f5779abe17df528c04d424a80a59a072e486",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N72-p98-g33896x4": {
+   "name": "evil-N72-p98-g33896x4",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 72,
+   "m": 319,
+   "best_known": 28,
+   "status": "optimal",
+   "upper_bound": 28,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "74ec1ec7ecc65b9957adc31455202644a54c451b7d1d7988afb10f06f77c40a7",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N72-p98-g33918x4": {
+   "name": "evil-N72-p98-g33918x4",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 72,
+   "m": 283,
+   "best_known": 28,
+   "status": "optimal",
+   "upper_bound": 28,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "b2e8351d7b536515187b222f99f9fc77f6476fc118f988b1dddaadc748db388a",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N720-p98-chv12x60": {
+   "name": "evil-N720-p98-chv12x60",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 720,
+   "m": 7415,
+   "best_known": 120,
+   "status": "optimal",
+   "upper_bound": 120,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "c3593d35fee157f1849e2d96d3768c0c4dff266e81d2c6d3dcffbc96cd729e38",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N75-p98-s3m25x3": {
+   "name": "evil-N75-p98-s3m25x3",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 75,
+   "m": 483,
+   "best_known": 12,
+   "status": "optimal",
+   "upper_bound": 12,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "a2d065039530d1504aea082d1edd787675d8fca719cea201846e119aecca9215",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N750-p98-s3m25x30": {
+   "name": "evil-N750-p98-s3m25x30",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "review-evil"
+   ],
+   "n": 750,
+   "m": 9813,
+   "best_known": 120,
+   "status": "optimal",
+   "upper_bound": 120,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "52f17deadf0ac700a9910316feee1f3ae9380e7a7085815b035320130a9744f0",
+   "origin": "https://github.com/zbogdan/evil2",
+   "license": "AFL-3.0"
+  },
+  "evil-N76-p98-g33920x4": {
+   "name": "evil-N76-p98-g33920x4",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 76,
+   "m": 349,
+   "best_known": 32,
+   "status": "optimal",
+   "upper_bound": 32,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "bceeb61c405cedcab1950b75999249953cac341ada2e13386221ffcfc3a27fa3",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N77-p98-myc11x7": {
+   "name": "evil-N77-p98-myc11x7",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 77,
+   "m": 300,
+   "best_known": 14,
+   "status": "optimal",
+   "upper_bound": 14,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "711bcbcf98b6b1ff1fdf77b96998db842808488723a74193bc186326e2b74ed7",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N80-p98-g136x8": {
+   "name": "evil-N80-p98-g136x8",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 80,
+   "m": 44,
+   "best_known": 64,
+   "status": "optimal",
+   "upper_bound": 64,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "543fe3250f50c2e851e2a59594d5bb007c5f1ccb881108dad48549e90888eb4d",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N80-p98-g150x8": {
+   "name": "evil-N80-p98-g150x8",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 80,
+   "m": 21,
+   "best_known": 72,
+   "status": "optimal",
+   "upper_bound": 72,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "74fae5e30a6232ec3e2df6a8a605fcba39b5335d68f3730bbf9513890011424e",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N80-p98-g50634x4": {
+   "name": "evil-N80-p98-g50634x4",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 80,
+   "m": 81,
+   "best_known": 40,
+   "status": "optimal",
+   "upper_bound": 40,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "49f868e11a19b1d9839e69b5a031e837507b1daf2753f2c804a4fba9f1f1237d",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N80-p98-myc5x16": {
+   "name": "evil-N80-p98-myc5x16",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 80,
+   "m": 124,
+   "best_known": 32,
+   "status": "optimal",
+   "upper_bound": 32,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "d4b072c392cb04718be873706bee3d532d5962756b56fbf28c145454a0bac842",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N84-p98-chv12x7": {
+   "name": "evil-N84-p98-chv12x7",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 84,
+   "m": 360,
+   "best_known": 14,
+   "status": "optimal",
+   "upper_bound": 14,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "def33c7aa1a8d6b3c735ea79c5e20a282612f1d05544d8e2b24cdcd95a7e2cd9",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N88-p98-g32559x8": {
+   "name": "evil-N88-p98-g32559x8",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 88,
+   "m": 95,
+   "best_known": 64,
+   "status": "optimal",
+   "upper_bound": 64,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "aa7127820a91b51092f5471814c78c15613e384bcbf1a9935aa07c68f9b281fd",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N88-p98-g32565x8": {
+   "name": "evil-N88-p98-g32565x8",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 88,
+   "m": 133,
+   "best_known": 56,
+   "status": "optimal",
+   "upper_bound": 56,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "9af5dc2b70d0e8050e1b331f745b8225801bf42a10305ad9e130e56868c21e5e",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N90-p98-g33896x5": {
+   "name": "evil-N90-p98-g33896x5",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 90,
+   "m": 420,
+   "best_known": 35,
+   "status": "optimal",
+   "upper_bound": 35,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "0a4627584b0fcff5a5bcb499170c3cc522b5481483d560d20d487931464328d7",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N90-p98-g33918x5": {
+   "name": "evil-N90-p98-g33918x5",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 90,
+   "m": 368,
+   "best_known": 35,
+   "status": "optimal",
+   "upper_bound": 35,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "77cadf2eb7a604d8414dc527e1184e413032543b9ead4a669c08890740f55788",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N92-p98-myc23x4": {
+   "name": "evil-N92-p98-myc23x4",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 92,
+   "m": 782,
+   "best_known": 8,
+   "status": "optimal",
+   "upper_bound": 8,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "cd29c496e3216db5666f473be7f5deccf666ad5852e4bd502004e67a0e1ed764",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N95-p98-g33920x5": {
+   "name": "evil-N95-p98-g33920x5",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 95,
+   "m": 434,
+   "best_known": 40,
+   "status": "optimal",
+   "upper_bound": 40,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "5ec514fe57cb889c28dea130a7f8349494cd7e5f7a6d69fa8b2c13792e48a860",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N96-p98-chv12x8": {
+   "name": "evil-N96-p98-chv12x8",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 96,
+   "m": 408,
+   "best_known": 16,
+   "status": "optimal",
+   "upper_bound": 16,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "4dac12c913fb1c2aa4963fe8aa8ad9ee350712007a407cfa13fc7207d53d2cea",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "evil-N99-p98-myc11x9": {
+   "name": "evil-N99-p98-myc11x9",
+   "family": "evil",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 99,
+   "m": 406,
+   "best_known": 18,
+   "status": "optimal",
+   "upper_bound": 18,
+   "record_source": "construction (omega in generator header)",
+   "sha256": "066c56cb9d6dcbeb539a3bad392fe2fcb90106b5323136fdba4f4cbf76a99d71",
+   "origin": "https://github.com/zbogdan/qbenchmarks",
+   "license": "AFL-3.0"
+  },
+  "aves-sparrow-social": {
+   "name": "aves-sparrow-social",
+   "family": "qoblib",
+   "tracks": [
+    "all",
+    "quantum-scale"
+   ],
+   "n": 52,
+   "m": 454,
+   "best_known": 13,
+   "status": "optimal",
+   "upper_bound": 13,
+   "record_source": "qoblib:reference",
+   "sha256": "cf801985004cf19cfd837dce9c79bb964415e466f9e4432d2792ea92f6be8f6b",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "brock200-1": {
+   "name": "brock200-1",
+   "family": "qoblib",
+   "tracks": [
+    "all"
+   ],
+   "n": 200,
+   "m": 14834,
+   "best_known": 6,
+   "status": "optimal",
+   "upper_bound": 6,
+   "record_source": "qoblib:reference",
+   "sha256": "1982202c989d22b7cdc7c25f12485b2a47ccefc441d4257afebcd9d2514161d6",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "brock200-2": {
+   "name": "brock200-2",
+   "family": "qoblib",
+   "tracks": [
+    "all"
+   ],
+   "n": 200,
+   "m": 10024,
+   "best_known": 12,
+   "status": "optimal",
+   "upper_bound": 12,
+   "record_source": "qoblib:reference",
+   "sha256": "f51694e641f2bc1c46e44bcac4add4a1e66fe0f32a3f6da1488b0e2ea13cbf26",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "brock200-3": {
+   "name": "brock200-3",
+   "family": "qoblib",
+   "tracks": [
+    "all"
+   ],
+   "n": 200,
+   "m": 12048,
+   "best_known": 9,
+   "status": "optimal",
+   "upper_bound": 9,
+   "record_source": "qoblib:reference",
+   "sha256": "64307013eca5d9137618e49aaf5f2b724df48701b7a32714658814dff5118cbb",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "brock200-4": {
+   "name": "brock200-4",
+   "family": "qoblib",
+   "tracks": [
+    "all"
+   ],
+   "n": 200,
+   "m": 13089,
+   "best_known": 8,
+   "status": "optimal",
+   "upper_bound": 8,
+   "record_source": "qoblib:reference",
+   "sha256": "67b61bf357eca61f5255d80c07210d4c9302a0cd6a392f42d000b6f2db8594b6",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "brock400-1": {
+   "name": "brock400-1",
+   "family": "qoblib",
+   "tracks": [
+    "all"
+   ],
+   "n": 400,
+   "m": 20077,
+   "best_known": 27,
+   "status": "optimal",
+   "upper_bound": 27,
+   "record_source": "qoblib:reference",
+   "sha256": "147bd73c8bae7350180c1854bbcdbf1d32c5207e924a1d5c898ec270651708f6",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "brock800-1": {
+   "name": "brock800-1",
+   "family": "qoblib",
+   "tracks": [
+    "all"
+   ],
+   "n": 800,
+   "m": 112095,
+   "best_known": 23,
+   "status": "optimal",
+   "upper_bound": 23,
+   "record_source": "qoblib:reference",
+   "sha256": "7c336156ad1e1672f6f38e8cb7196f34346d18652030b1406e570d8f8071dd8a",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "c-fat200-1": {
+   "name": "c-fat200-1",
+   "family": "qoblib",
+   "tracks": [
+    "all"
+   ],
+   "n": 200,
+   "m": 1534,
+   "best_known": 18,
+   "status": "optimal",
+   "upper_bound": 18,
+   "record_source": "qoblib:reference",
+   "sha256": "64a846de9cce05e4d647af9393e93f782f4d49353065126d8e56479c93f84c39",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "C125-9": {
+   "name": "C125-9",
+   "family": "qoblib",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 125,
+   "m": 787,
+   "best_known": 34,
+   "status": "optimal",
+   "upper_bound": 34,
+   "record_source": "qoblib:reference",
+   "sha256": "dbc5874ce79458755ec52afb0378dafd18a6983abb71136dd548cfd57fc8bb9a",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "C4000-5": {
+   "name": "C4000-5",
+   "family": "qoblib",
+   "tracks": [
+    "all"
+   ],
+   "n": 4000,
+   "m": 3997732,
+   "best_known": 18,
+   "status": "best-known",
+   "upper_bound": null,
+   "record_source": "qoblib:20250715_Abs2_Schicker",
+   "sha256": "81b702958030452544fbba7766a524249da74f4111630327a2cbaae5211b995f",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "C500-9": {
+   "name": "C500-9",
+   "family": "qoblib",
+   "tracks": [
+    "all"
+   ],
+   "n": 500,
+   "m": 12418,
+   "best_known": 57,
+   "status": "best-known",
+   "upper_bound": 126,
+   "record_source": "qoblib:20250715_Abs2_Schicker",
+   "sha256": "7b070a43868b0ed90deee52c5d1f8e583c30d1c7e25377869eb1ecb45f35a033",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "chesapeake": {
+   "name": "chesapeake",
+   "family": "qoblib",
+   "tracks": [
+    "all",
+    "quantum-scale"
+   ],
+   "n": 39,
+   "m": 170,
+   "best_known": 17,
+   "status": "optimal",
+   "upper_bound": 17,
+   "record_source": "qoblib:reference",
+   "sha256": "4df900ef3d1859e253178c5c3f172b99b2002d6efa41611c887feeb65a3fafbc",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "es60fst01": {
+   "name": "es60fst01",
+   "family": "qoblib",
+   "tracks": [
+    "all",
+    "quantum-scale"
+   ],
+   "n": 123,
+   "m": 159,
+   "best_known": 60,
+   "status": "optimal",
+   "upper_bound": 60,
+   "record_source": "qoblib:reference",
+   "sha256": "48d05795d489ac3dafab21af3ed9fd98ec0b84288d5c4bccec1dc0c13b9301c2",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "es60fst02": {
+   "name": "es60fst02",
+   "family": "qoblib",
+   "tracks": [
+    "all"
+   ],
+   "n": 186,
+   "m": 280,
+   "best_known": 88,
+   "status": "optimal",
+   "upper_bound": 88,
+   "record_source": "qoblib:reference",
+   "sha256": "9eedfdc72324bac1007710e0093db252f478e68130f2a2fee6eebf4b06c70953",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "es60fst03": {
+   "name": "es60fst03",
+   "family": "qoblib",
+   "tracks": [
+    "all",
+    "quantum-scale"
+   ],
+   "n": 113,
+   "m": 142,
+   "best_known": 55,
+   "status": "optimal",
+   "upper_bound": 55,
+   "record_source": "qoblib:reference",
+   "sha256": "588993346788c3ba58a4d30cd84b86f22433aeaf5a977995e941b775b997316c",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "es60fst04": {
+   "name": "es60fst04",
+   "family": "qoblib",
+   "tracks": [
+    "all"
+   ],
+   "n": 162,
+   "m": 238,
+   "best_known": 78,
+   "status": "optimal",
+   "upper_bound": 78,
+   "record_source": "qoblib:reference",
+   "sha256": "b29cf5fa63b9669a0ef16a922cbdad4c0684ab379739ea28027b0c7c4c27d496",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "farm": {
+   "name": "farm",
+   "family": "qoblib",
+   "tracks": [
+    "all",
+    "quantum-scale"
+   ],
+   "n": 17,
+   "m": 39,
+   "best_known": 10,
+   "status": "optimal",
+   "upper_bound": 10,
+   "record_source": "qoblib:reference",
+   "sha256": "9d255c3211e5238f683a60eb8787e0609be020c57c53defc6ebd93d83064f442",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "football": {
+   "name": "football",
+   "family": "qoblib",
+   "tracks": [
+    "all",
+    "quantum-scale"
+   ],
+   "n": 35,
+   "m": 118,
+   "best_known": 16,
+   "status": "optimal",
+   "upper_bound": 16,
+   "record_source": "qoblib:reference",
+   "sha256": "70b024679099baa763bf3e695823156cc9343d5f74c74185e73511dbcdd698a7",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "frb100-40": {
+   "name": "frb100-40",
+   "family": "qoblib",
+   "tracks": [
+    "all"
+   ],
+   "n": 4000,
+   "m": 572774,
+   "best_known": 97,
+   "status": "best-known",
+   "upper_bound": null,
+   "record_source": "qoblib:20261102_NuMVC_Canli",
+   "sha256": "d09bed62cba7bab9e5d9011d7e48598e267ebfd53448f42990cfbe27eaf78d48",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "frb45-21-3": {
+   "name": "frb45-21-3",
+   "family": "qoblib",
+   "tracks": [
+    "all"
+   ],
+   "n": 945,
+   "m": 58245,
+   "best_known": 45,
+   "status": "optimal",
+   "upper_bound": 45,
+   "record_source": "qoblib:reference",
+   "sha256": "440d0fc6cd5ac2d82be0aa776c114a3936719179fcadf8893719c5b5b9b15662",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "frb50-23-3": {
+   "name": "frb50-23-3",
+   "family": "qoblib",
+   "tracks": [
+    "all"
+   ],
+   "n": 1150,
+   "m": 81068,
+   "best_known": 50,
+   "status": "optimal",
+   "upper_bound": 50,
+   "record_source": "qoblib:reference",
+   "sha256": "c8b822e61b221535067143b42b5765ea9d43206c6f40485e486fd4ea89481a35",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "frb53-24-1": {
+   "name": "frb53-24-1",
+   "family": "qoblib",
+   "tracks": [
+    "all"
+   ],
+   "n": 1272,
+   "m": 94227,
+   "best_known": 53,
+   "status": "optimal",
+   "upper_bound": 53,
+   "record_source": "qoblib:20260806_ParallelILS_Hegade",
+   "sha256": "27a708e05cb3bb34b49b7d61ad9fac0f57f803fb4b7cdca9b20cb72ed8b3861e",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "frb59-26-2": {
+   "name": "frb59-26-2",
+   "family": "qoblib",
+   "tracks": [
+    "all"
+   ],
+   "n": 1534,
+   "m": 126163,
+   "best_known": 59,
+   "status": "optimal",
+   "upper_bound": 59,
+   "record_source": "qoblib:reference",
+   "sha256": "b1a723112d4b24c7269dbac78b0bc66e07504ffb0a65a6143b9bd4ee2ef6162e",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "gen200_p0-9_44": {
+   "name": "gen200_p0-9_44",
+   "family": "qoblib",
+   "tracks": [
+    "all"
+   ],
+   "n": 200,
+   "m": 1990,
+   "best_known": 44,
+   "status": "optimal",
+   "upper_bound": 44,
+   "record_source": "qoblib:reference",
+   "sha256": "f0ab3fe91a05d50d6c37fca16f8aeb8dcf340406618f9114a513d47bc74fc83c",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "hamming10-4": {
+   "name": "hamming10-4",
+   "family": "qoblib",
+   "tracks": [
+    "all"
+   ],
+   "n": 1024,
+   "m": 89600,
+   "best_known": 40,
+   "status": "best-known",
+   "upper_bound": 48,
+   "record_source": "qoblib:20250715_Abs2_Schicker",
+   "sha256": "9c04e6ab4beea565d7d2e5ffd721dd9e1e24787b2334b98ae6c7c2955a0d3bb6",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "hamming6-2": {
+   "name": "hamming6-2",
+   "family": "qoblib",
+   "tracks": [
+    "all",
+    "quantum-scale"
+   ],
+   "n": 64,
+   "m": 1824,
+   "best_known": 2,
+   "status": "optimal",
+   "upper_bound": 2,
+   "record_source": "qoblib:reference",
+   "sha256": "823d647bd1b2077db96509d89dac3519cde6d544f1668cfc8d014a4b3c70f2bd",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "hamming6-4": {
+   "name": "hamming6-4",
+   "family": "qoblib",
+   "tracks": [
+    "all",
+    "quantum-scale"
+   ],
+   "n": 64,
+   "m": 704,
+   "best_known": 12,
+   "status": "optimal",
+   "upper_bound": 12,
+   "record_source": "qoblib:reference",
+   "sha256": "e22763e2c9b545b5da1e02c0d2d7f7afbb871f98af46a10d7c0007a27fc82efb",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "ibm32": {
+   "name": "ibm32",
+   "family": "qoblib",
+   "tracks": [
+    "all",
+    "quantum-scale"
+   ],
+   "n": 32,
+   "m": 90,
+   "best_known": 13,
+   "status": "optimal",
+   "upper_bound": 13,
+   "record_source": "qoblib:reference",
+   "sha256": "e721f69014d1d5c939bb321ce7e9598bef706abea450ccd43eaaec6714129eac",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "insecta-ant-colony1-day38": {
+   "name": "insecta-ant-colony1-day38",
+   "family": "qoblib",
+   "tracks": [
+    "all",
+    "quantum-scale"
+   ],
+   "n": 56,
+   "m": 1134,
+   "best_known": 6,
+   "status": "optimal",
+   "upper_bound": 6,
+   "record_source": "qoblib:reference",
+   "sha256": "b781cb5690d413684a3ae5e87e56226934bdb20732a4031f608644f4909826a3",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "insecta-ant-colony3-day09": {
+   "name": "insecta-ant-colony3-day09",
+   "family": "qoblib",
+   "tracks": [
+    "all"
+   ],
+   "n": 160,
+   "m": 8883,
+   "best_known": 9,
+   "status": "optimal",
+   "upper_bound": 9,
+   "record_source": "qoblib:reference",
+   "sha256": "7c4b89224e4b3bb1834cb4711406534c502f916874f1d4e1ed26e29931c8fbaf",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "johnson16-2-4": {
+   "name": "johnson16-2-4",
+   "family": "qoblib",
+   "tracks": [
+    "all",
+    "quantum-scale"
+   ],
+   "n": 120,
+   "m": 5460,
+   "best_known": 15,
+   "status": "optimal",
+   "upper_bound": 15,
+   "record_source": "qoblib:reference",
+   "sha256": "5e37a9bbc10fd357a84051015a26dbdbd4eddd767cf1108b6f2f1fea305ce80c",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "johnson8-2-4": {
+   "name": "johnson8-2-4",
+   "family": "qoblib",
+   "tracks": [
+    "all",
+    "quantum-scale"
+   ],
+   "n": 28,
+   "m": 210,
+   "best_known": 7,
+   "status": "optimal",
+   "upper_bound": 7,
+   "record_source": "qoblib:reference",
+   "sha256": "9d98197cb2ab51e34d2b45d9897d2163f281838c5a960f6d11b05d4482123c84",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "johnson8-4-4": {
+   "name": "johnson8-4-4",
+   "family": "qoblib",
+   "tracks": [
+    "all",
+    "quantum-scale"
+   ],
+   "n": 70,
+   "m": 1855,
+   "best_known": 5,
+   "status": "optimal",
+   "upper_bound": 5,
+   "record_source": "qoblib:reference",
+   "sha256": "0fc70999e557e08b543202b8b2155bf4c88ac3b0e1e7f4c9e717831e7259b14f",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "karate": {
+   "name": "karate",
+   "family": "qoblib",
+   "tracks": [
+    "all",
+    "quantum-scale"
+   ],
+   "n": 34,
+   "m": 78,
+   "best_known": 20,
+   "status": "optimal",
+   "upper_bound": 20,
+   "record_source": "qoblib:reference",
+   "sha256": "64eacc3ac2abd9d67c9477f7169c9d5b22b7983cc573dba7fa964f27e3d407bb",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "keller4": {
+   "name": "keller4",
+   "family": "qoblib",
+   "tracks": [
+    "all"
+   ],
+   "n": 171,
+   "m": 5100,
+   "best_known": 11,
+   "status": "optimal",
+   "upper_bound": 11,
+   "record_source": "qoblib:reference",
+   "sha256": "da8ce4d3973b8c8feadb6ac944bbd35709a433413bbc66437bf58542f31bb386",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "keller6": {
+   "name": "keller6",
+   "family": "qoblib",
+   "tracks": [
+    "all"
+   ],
+   "n": 3361,
+   "m": 1026582,
+   "best_known": 59,
+   "status": "best-known",
+   "upper_bound": null,
+   "record_source": "qoblib:20250715_Abs2_Schicker",
+   "sha256": "8c4eb421c22bd5d0a3b963be0e2825e09e29f7915c10384af8ee3988dc40b61d",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "mammalia-kangaroo-interactions": {
+   "name": "mammalia-kangaroo-interactions",
+   "family": "qoblib",
+   "tracks": [
+    "all",
+    "quantum-scale"
+   ],
+   "n": 17,
+   "m": 91,
+   "best_known": 4,
+   "status": "optimal",
+   "upper_bound": 4,
+   "record_source": "qoblib:reference",
+   "sha256": "4159bfafe8afb4dfb8171892640fe8058caf595034caeff3044fd496a75a9dd4",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "MANN-a9": {
+   "name": "MANN-a9",
+   "family": "qoblib",
+   "tracks": [
+    "all",
+    "quantum-scale"
+   ],
+   "n": 45,
+   "m": 918,
+   "best_known": 3,
+   "status": "optimal",
+   "upper_bound": 3,
+   "record_source": "qoblib:reference",
+   "sha256": "3dba418569f5b0c1a40e7e189f9e700b08afd49baa4d468e4cec88f389f3342d",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "p_hat1500-1": {
+   "name": "p_hat1500-1",
+   "family": "qoblib",
+   "tracks": [
+    "all"
+   ],
+   "n": 1500,
+   "m": 839327,
+   "best_known": 12,
+   "status": "optimal",
+   "upper_bound": 12,
+   "record_source": "qoblib:reference",
+   "sha256": "08f9691807d05e00a61cfdcf24360864a830ef82123dc2ddd71d8d2069f3694a",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "p_hat1500-3": {
+   "name": "p_hat1500-3",
+   "family": "qoblib",
+   "tracks": [
+    "all"
+   ],
+   "n": 1500,
+   "m": 277006,
+   "best_known": 94,
+   "status": "optimal",
+   "upper_bound": 94,
+   "record_source": "qoblib:reference",
+   "sha256": "7c5812597119dfbe43f85fd24af447ac36f7213d7ce1216f9503793e086a39b2",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "R_1000_005_1": {
+   "name": "R_1000_005_1",
+   "family": "qoblib",
+   "tracks": [
+    "all"
+   ],
+   "n": 1000,
+   "m": 24670,
+   "best_known": 117,
+   "status": "best-known",
+   "upper_bound": 301,
+   "record_source": "qoblib:20260806_ParallelILS_Hegade",
+   "sha256": "cdc6a45b7a54b447cf81656fb1e355fe5d23d6eaa631073a7c1a72da144df724",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "R_500_005_1": {
+   "name": "R_500_005_1",
+   "family": "qoblib",
+   "tracks": [
+    "all"
+   ],
+   "n": 500,
+   "m": 6256,
+   "best_known": 91,
+   "status": "best-known",
+   "upper_bound": 156,
+   "record_source": "qoblib:20260806_ParallelILS_Hegade",
+   "sha256": "644093340fb95093f22de5d4aef8da706f19870ca273ee4bbf0ed2695d4d50a0",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "sloane_1dc_128": {
+   "name": "sloane_1dc_128",
+   "family": "qoblib",
+   "tracks": [
+    "all",
+    "quantum-scale"
+   ],
+   "n": 128,
+   "m": 1471,
+   "best_known": 16,
+   "status": "optimal",
+   "upper_bound": 16,
+   "record_source": "qoblib:reference",
+   "sha256": "db7c5d897b3e6be149a5ec34816cce14f923de5e6038e70b3cdbcb763a273d2a",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "sloane_1dc_64": {
+   "name": "sloane_1dc_64",
+   "family": "qoblib",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 64,
+   "m": 543,
+   "best_known": 10,
+   "status": "optimal",
+   "upper_bound": 10,
+   "record_source": "qoblib:reference",
+   "sha256": "22f504e40f26480e8659b061bf1057f8e5c33d6a01d31dc3e107dd8db85328ea",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "sloane_1zc_128": {
+   "name": "sloane_1zc_128",
+   "family": "qoblib",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 128,
+   "m": 1120,
+   "best_known": 18,
+   "status": "optimal",
+   "upper_bound": 18,
+   "record_source": "qoblib:reference",
+   "sha256": "3276cb85cce3f26537c81864fac5784c82b789a8f7099e9dabc8c160df35b0f8",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "sloane_2dc_128": {
+   "name": "sloane_2dc_128",
+   "family": "qoblib",
+   "tracks": [
+    "all",
+    "quantum-scale",
+    "review-qbench"
+   ],
+   "n": 128,
+   "m": 5173,
+   "best_known": 5,
+   "status": "optimal",
+   "upper_bound": 5,
+   "record_source": "qoblib:reference",
+   "sha256": "d4fecc26d97b78b0b09bf64ee8385d5d1af54ba0a4e7e71737d959c7075ffabd",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "socfb-haverford76": {
+   "name": "socfb-haverford76",
+   "family": "qoblib",
+   "tracks": [
+    "all"
+   ],
+   "n": 1446,
+   "m": 59589,
+   "best_known": 282,
+   "status": "best-known",
+   "upper_bound": 314,
+   "record_source": "qoblib:20250715_Abs2_Schicker",
+   "sha256": "278e60ed7a4e612e549020316f9f7166c3270c23b26e0b0202e437707b27e3ff",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "socfb-trinity100": {
+   "name": "socfb-trinity100",
+   "family": "qoblib",
+   "tracks": [
+    "all"
+   ],
+   "n": 2613,
+   "m": 111996,
+   "best_known": 499,
+   "status": "best-known",
+   "upper_bound": 602,
+   "record_source": "qoblib:20250715_Abs2_Schicker",
+   "sha256": "8ae5e3ab6e04f3d6e0e5a8023ea93d6c18e59fbbca418dbb8421cad034bdb2b0",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "sorrell4": {
+   "name": "sorrell4",
+   "family": "qoblib",
+   "tracks": [
+    "all"
+   ],
+   "n": 2048,
+   "m": 504451,
+   "best_known": 24,
+   "status": "optimal",
+   "upper_bound": 24,
+   "record_source": "qoblib:reference",
+   "sha256": "5a83edebb10022a652dd5ba11f218ed4de90840fbfd559b3021a225f32f146d1",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  },
+  "sorrell7": {
+   "name": "sorrell7",
+   "family": "qoblib",
+   "tracks": [
+    "all"
+   ],
+   "n": 2048,
+   "m": 39424,
+   "best_known": 198,
+   "status": "best-known",
+   "upper_bound": 337,
+   "record_source": "qoblib:20260806_ParallelILS_Hegade",
+   "sha256": "85d10e083c4bfaa9d22af4b82cd95dae64b54ed3c3ce54ac7c378754afb25177",
+   "origin": "https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library",
+   "license": "see QOBLIB"
+  }
+ },
+ "submissions": {
+  "2026-11-25_arw_ils_qvsc-baselines": {
+   "meta": {
+    "method": "ARW iterated local search",
+    "authors": [
+     "QvsC maintainers"
+    ],
+    "paradigm": "classical",
+    "date": "2026-11-25",
+    "hardware": "Intel(R) Xeon(R) Processor @ 2.10GHz, 1 thread",
+    "time_limit_s": 10,
+    "code": "https://github.com/qvsc-bench/qvsc/tree/main/problems/mis/baselines",
+    "description": "Iterated local search with (1,2)-swaps and random kicks, after Andrade, Resende and Werneck (J. Heuristics 2012).",
+    "reference": "https://doi.org/10.1007/s10732-012-9196-4"
+   },
+   "sizes": {
+    "C125-9": 34,
+    "C4000-5": 17,
+    "C500-9": 57,
+    "MANN-a9": 3,
+    "R_1000_005_1": 117,
+    "R_500_005_1": 90,
+    "a265032_1et-128": 28,
+    "a265032_1et-64": 18,
+    "a265032_1tc-128": 38,
+    "a265032_1tc-64": 20,
+    "aves-sparrow-social": 13,
+    "brock200-1": 6,
+    "brock200-2": 12,
+    "brock200-3": 9,
+    "brock200-4": 8,
+    "brock400-1": 25,
+    "brock800-1": 21,
+    "c-fat200-1": 18,
+    "chesapeake": 17,
+    "es60fst01": 60,
+    "es60fst02": 88,
+    "es60fst03": 55,
+    "es60fst04": 78,
+    "evil-N100-p98-g136x10": 80,
+    "evil-N100-p98-g150x10": 90,
+    "evil-N100-p98-g50634x5": 50,
+    "evil-N100-p98-myc5x20": 40,
+    "evil-N100-p98-s3m25x4": 16,
+    "evil-N108-p98-chv12x9": 18,
+    "evil-N108-p98-g33896x6": 42,
+    "evil-N108-p98-g33918x6": 42,
+    "evil-N110-p98-g32559x10": 80,
+    "evil-N110-p98-g32565x10": 70,
+    "evil-N114-p98-g33920x6": 48,
+    "evil-N115-p98-myc23x5": 10,
+    "evil-N120-p98-chv12x10": 20,
+    "evil-N120-p98-g136x12": 96,
+    "evil-N120-p98-g50634x6": 60,
+    "evil-N120-p98-myc5x24": 48,
+    "evil-N121-p98-myc11x11": 22,
+    "evil-N125-p98-s3m25x5": 20,
+    "evil-N126-p98-g33896x7": 49,
+    "evil-N126-p98-g33918x7": 49,
+    "evil-N138-p98-myc23x6": 12,
+    "evil-N150-p98-myc5x30": 60,
+    "evil-N150-p98-s3m25x6": 24,
+    "evil-N154-p98-myc11x14": 28,
+    "evil-N180-p98-chv12x15": 30,
+    "evil-N180-p98-myc5x36": 72,
+    "evil-N184-p98-myc23x8": 16,
+    "evil-N187-p98-myc11x17": 34,
+    "evil-N200-p98-s3m25x8": 32,
+    "evil-N210-p98-myc5x42": 84,
+    "evil-N220-p98-myc11x20": 40,
+    "evil-N230-p98-myc23x10": 20,
+    "evil-N240-p98-chv12x20": 40,
+    "evil-N240-p98-myc5x48": 96,
+    "evil-N250-p98-s3m25x10": 40,
+    "evil-N253-p98-myc11x23": 46,
+    "evil-N300-p98-myc5x60": 120,
+    "evil-N330-p98-myc11x30": 60,
+    "evil-N345-p98-myc23x15": 30,
+    "evil-N360-p98-chv12x30": 60,
+    "evil-N375-p98-s3m25x15": 60,
+    "evil-N400-p98-myc5x80": 160,
+    "evil-N440-p98-myc11x40": 80,
+    "evil-N460-p98-myc23x20": 40,
+    "evil-N480-p98-chv12x40": 80,
+    "evil-N50-p98-s3m25x2": 8,
+    "evil-N500-p98-myc5x100": 200,
+    "evil-N500-p98-s3m25x20": 80,
+    "evil-N55-p98-myc11x5": 10,
+    "evil-N550-p98-myc11x50": 100,
+    "evil-N575-p98-myc23x25": 50,
+    "evil-N60-p98-chv12x5": 10,
+    "evil-N60-p98-g136x6": 48,
+    "evil-N60-p98-g150x6": 54,
+    "evil-N60-p98-g50634x3": 30,
+    "evil-N60-p98-myc5x12": 24,
+    "evil-N600-p98-myc5x120": 240,
+    "evil-N625-p98-s3m25x25": 100,
+    "evil-N66-p98-g32559x6": 48,
+    "evil-N66-p98-g32565x6": 42,
+    "evil-N660-p98-myc11x60": 120,
+    "evil-N69-p98-myc23x3": 6,
+    "evil-N690-p98-myc23x30": 60,
+    "evil-N700-p98-myc5x140": 280,
+    "evil-N72-p98-chv12x6": 12,
+    "evil-N72-p98-g33896x4": 28,
+    "evil-N72-p98-g33918x4": 28,
+    "evil-N720-p98-chv12x60": 120,
+    "evil-N75-p98-s3m25x3": 12,
+    "evil-N750-p98-s3m25x30": 120,
+    "evil-N76-p98-g33920x4": 32,
+    "evil-N77-p98-myc11x7": 14,
+    "evil-N80-p98-g136x8": 64,
+    "evil-N80-p98-g150x8": 72,
+    "evil-N80-p98-g50634x4": 40,
+    "evil-N80-p98-myc5x16": 32,
+    "evil-N84-p98-chv12x7": 14,
+    "evil-N88-p98-g32559x8": 64,
+    "evil-N88-p98-g32565x8": 56,
+    "evil-N90-p98-g33896x5": 35,
+    "evil-N90-p98-g33918x5": 35,
+    "evil-N92-p98-myc23x4": 8,
+    "evil-N95-p98-g33920x5": 40,
+    "evil-N96-p98-chv12x8": 16,
+    "evil-N99-p98-myc11x9": 18,
+    "farm": 10,
+    "football": 16,
+    "frb100-40": 93,
+    "frb45-21-3": 44,
+    "frb50-23-3": 48,
+    "frb53-24-1": 51,
+    "frb59-26-2": 57,
+    "gen200_p0-9_44": 44,
+    "hamming10-4": 40,
+    "hamming6-2-comp": 32,
+    "hamming6-2": 2,
+    "hamming6-4-comp": 4,
+    "hamming6-4": 12,
+    "ibm32": 13,
+    "insecta-ant-colony1-day38": 6,
+    "insecta-ant-colony3-day09": 9,
+    "johnson16-2-4-comp": 8,
+    "johnson16-2-4": 15,
+    "johnson8-2-4": 7,
+    "johnson8-4-4-comp": 14,
+    "johnson8-4-4": 5,
+    "karate": 20,
+    "keller4": 11,
+    "keller6": 59,
+    "mammalia-kangaroo-interactions": 4,
+    "p_hat1500-1": 12,
+    "p_hat1500-3": 94,
+    "sloane_1dc_128": 16,
+    "sloane_1dc_64": 10,
+    "sloane_1zc_128": 18,
+    "sloane_2dc_128": 5,
+    "socfb-haverford76": 282,
+    "socfb-trinity100": 499,
+    "sorrell4": 23,
+    "sorrell7": 196
+   }
+  },
+  "2026-11-25_cpsat_qvsc-baselines": {
+   "meta": {
+    "method": "OR-Tools CP-SAT (edge formulation)",
+    "authors": [
+     "QvsC maintainers"
+    ],
+    "paradigm": "classical",
+    "date": "2026-11-25",
+    "hardware": "Intel(R) Xeon(R) Processor @ 2.10GHz, 4 CP-SAT threads",
+    "time_limit_s": 30,
+    "code": "https://github.com/qvsc-bench/qvsc/tree/main/problems/mis/baselines",
+    "description": "Exact branch-and-bound / clause learning solver from Google OR-Tools, used as an anytime solver with a time limit; certifies optimality when it closes the gap.",
+    "exact": true
+   },
+   "sizes": {
+    "C125-9": 34,
+    "C500-9": 52,
+    "MANN-a9": 3,
+    "R_1000_005_1": 105,
+    "R_500_005_1": 88,
+    "a265032_1et-128": 28,
+    "a265032_1et-64": 18,
+    "a265032_1tc-128": 38,
+    "a265032_1tc-64": 20,
+    "aves-sparrow-social": 13,
+    "brock200-1": 6,
+    "brock200-2": 12,
+    "brock200-3": 9,
+    "brock200-4": 8,
+    "brock400-1": 25,
+    "brock800-1": 19,
+    "c-fat200-1": 18,
+    "chesapeake": 17,
+    "es60fst01": 60,
+    "es60fst02": 88,
+    "es60fst03": 55,
+    "es60fst04": 78,
+    "evil-N100-p98-g136x10": 80,
+    "evil-N100-p98-g150x10": 90,
+    "evil-N100-p98-g50634x5": 50,
+    "evil-N100-p98-myc5x20": 40,
+    "evil-N100-p98-s3m25x4": 16,
+    "evil-N108-p98-chv12x9": 18,
+    "evil-N108-p98-g33896x6": 42,
+    "evil-N108-p98-g33918x6": 42,
+    "evil-N110-p98-g32559x10": 80,
+    "evil-N110-p98-g32565x10": 70,
+    "evil-N114-p98-g33920x6": 48,
+    "evil-N115-p98-myc23x5": 10,
+    "evil-N120-p98-chv12x10": 20,
+    "evil-N120-p98-g136x12": 96,
+    "evil-N120-p98-g50634x6": 60,
+    "evil-N120-p98-myc5x24": 48,
+    "evil-N121-p98-myc11x11": 22,
+    "evil-N125-p98-s3m25x5": 20,
+    "evil-N126-p98-g33896x7": 49,
+    "evil-N126-p98-g33918x7": 49,
+    "evil-N138-p98-myc23x6": 12,
+    "evil-N150-p98-myc5x30": 60,
+    "evil-N150-p98-s3m25x6": 24,
+    "evil-N154-p98-myc11x14": 28,
+    "evil-N180-p98-chv12x15": 30,
+    "evil-N180-p98-myc5x36": 72,
+    "evil-N184-p98-myc23x8": 16,
+    "evil-N187-p98-myc11x17": 34,
+    "evil-N200-p98-s3m25x8": 32,
+    "evil-N210-p98-myc5x42": 84,
+    "evil-N220-p98-myc11x20": 40,
+    "evil-N230-p98-myc23x10": 20,
+    "evil-N240-p98-chv12x20": 40,
+    "evil-N240-p98-myc5x48": 96,
+    "evil-N250-p98-s3m25x10": 40,
+    "evil-N253-p98-myc11x23": 46,
+    "evil-N300-p98-myc5x60": 120,
+    "evil-N330-p98-myc11x30": 60,
+    "evil-N345-p98-myc23x15": 30,
+    "evil-N360-p98-chv12x30": 60,
+    "evil-N375-p98-s3m25x15": 60,
+    "evil-N400-p98-myc5x80": 160,
+    "evil-N440-p98-myc11x40": 80,
+    "evil-N460-p98-myc23x20": 40,
+    "evil-N480-p98-chv12x40": 80,
+    "evil-N50-p98-s3m25x2": 8,
+    "evil-N500-p98-myc5x100": 200,
+    "evil-N500-p98-s3m25x20": 80,
+    "evil-N55-p98-myc11x5": 10,
+    "evil-N550-p98-myc11x50": 100,
+    "evil-N575-p98-myc23x25": 50,
+    "evil-N60-p98-chv12x5": 10,
+    "evil-N60-p98-g136x6": 48,
+    "evil-N60-p98-g150x6": 54,
+    "evil-N60-p98-g50634x3": 30,
+    "evil-N60-p98-myc5x12": 24,
+    "evil-N600-p98-myc5x120": 240,
+    "evil-N625-p98-s3m25x25": 97,
+    "evil-N66-p98-g32559x6": 48,
+    "evil-N66-p98-g32565x6": 42,
+    "evil-N660-p98-myc11x60": 120,
+    "evil-N69-p98-myc23x3": 6,
+    "evil-N690-p98-myc23x30": 60,
+    "evil-N700-p98-myc5x140": 280,
+    "evil-N72-p98-chv12x6": 12,
+    "evil-N72-p98-g33896x4": 28,
+    "evil-N72-p98-g33918x4": 28,
+    "evil-N720-p98-chv12x60": 120,
+    "evil-N75-p98-s3m25x3": 12,
+    "evil-N750-p98-s3m25x30": 113,
+    "evil-N76-p98-g33920x4": 32,
+    "evil-N77-p98-myc11x7": 14,
+    "evil-N80-p98-g136x8": 64,
+    "evil-N80-p98-g150x8": 72,
+    "evil-N80-p98-g50634x4": 40,
+    "evil-N80-p98-myc5x16": 32,
+    "evil-N84-p98-chv12x7": 14,
+    "evil-N88-p98-g32559x8": 64,
+    "evil-N88-p98-g32565x8": 56,
+    "evil-N90-p98-g33896x5": 35,
+    "evil-N90-p98-g33918x5": 35,
+    "evil-N92-p98-myc23x4": 8,
+    "evil-N95-p98-g33920x5": 40,
+    "evil-N96-p98-chv12x8": 16,
+    "evil-N99-p98-myc11x9": 18,
+    "farm": 10,
+    "football": 16,
+    "frb45-21-3": 40,
+    "frb50-23-3": 44,
+    "frb53-24-1": 48,
+    "frb59-26-2": 52,
+    "gen200_p0-9_44": 44,
+    "hamming10-4": 38,
+    "hamming6-2-comp": 32,
+    "hamming6-2": 2,
+    "hamming6-4-comp": 4,
+    "hamming6-4": 12,
+    "ibm32": 13,
+    "insecta-ant-colony1-day38": 6,
+    "insecta-ant-colony3-day09": 9,
+    "johnson16-2-4-comp": 8,
+    "johnson16-2-4": 15,
+    "johnson8-2-4": 7,
+    "johnson8-4-4-comp": 14,
+    "johnson8-4-4": 5,
+    "karate": 20,
+    "keller4": 11,
+    "mammalia-kangaroo-interactions": 4,
+    "p_hat1500-3": 93,
+    "sloane_1dc_128": 16,
+    "sloane_1dc_64": 10,
+    "sloane_1zc_128": 18,
+    "sloane_2dc_128": 5,
+    "socfb-haverford76": 280,
+    "socfb-trinity100": 493,
+    "sorrell7": 184
+   }
+  },
+  "2026-11-25_greedy_qvsc-baselines": {
+   "meta": {
+    "method": "Minimum-degree greedy",
+    "authors": [
+     "QvsC maintainers"
+    ],
+    "paradigm": "classical",
+    "date": "2026-11-25",
+    "hardware": "Intel(R) Xeon(R) Processor @ 2.10GHz, 1 thread",
+    "time_limit_s": 0,
+    "code": "https://github.com/qvsc-bench/qvsc/tree/main/problems/mis/baselines",
+    "description": "Adds a minimum-degree vertex, deletes its neighbourhood, repeats. Deterministic, single pass."
+   },
+   "sizes": {
+    "C125-9": 31,
+    "C4000-5": 14,
+    "C500-9": 52,
+    "MANN-a9": 2,
+    "R_1000_005_1": 105,
+    "R_500_005_1": 84,
+    "a265032_1et-128": 28,
+    "a265032_1et-64": 18,
+    "a265032_1tc-128": 35,
+    "a265032_1tc-64": 20,
+    "aves-sparrow-social": 13,
+    "brock200-1": 6,
+    "brock200-2": 9,
+    "brock200-3": 8,
+    "brock200-4": 8,
+    "brock400-1": 22,
+    "brock800-1": 17,
+    "c-fat200-1": 18,
+    "chesapeake": 16,
+    "es60fst01": 59,
+    "es60fst02": 86,
+    "es60fst03": 55,
+    "es60fst04": 78,
+    "evil-N100-p98-g136x10": 80,
+    "evil-N100-p98-g150x10": 90,
+    "evil-N100-p98-g50634x5": 50,
+    "evil-N100-p98-myc5x20": 40,
+    "evil-N100-p98-s3m25x4": 16,
+    "evil-N108-p98-chv12x9": 18,
+    "evil-N108-p98-g33896x6": 40,
+    "evil-N108-p98-g33918x6": 39,
+    "evil-N110-p98-g32559x10": 80,
+    "evil-N110-p98-g32565x10": 70,
+    "evil-N114-p98-g33920x6": 48,
+    "evil-N115-p98-myc23x5": 10,
+    "evil-N120-p98-chv12x10": 20,
+    "evil-N120-p98-g136x12": 96,
+    "evil-N120-p98-g50634x6": 59,
+    "evil-N120-p98-myc5x24": 47,
+    "evil-N121-p98-myc11x11": 22,
+    "evil-N125-p98-s3m25x5": 20,
+    "evil-N126-p98-g33896x7": 49,
+    "evil-N126-p98-g33918x7": 47,
+    "evil-N138-p98-myc23x6": 12,
+    "evil-N150-p98-myc5x30": 60,
+    "evil-N150-p98-s3m25x6": 24,
+    "evil-N154-p98-myc11x14": 28,
+    "evil-N180-p98-chv12x15": 30,
+    "evil-N180-p98-myc5x36": 70,
+    "evil-N184-p98-myc23x8": 16,
+    "evil-N187-p98-myc11x17": 34,
+    "evil-N200-p98-s3m25x8": 32,
+    "evil-N210-p98-myc5x42": 82,
+    "evil-N220-p98-myc11x20": 40,
+    "evil-N230-p98-myc23x10": 20,
+    "evil-N240-p98-chv12x20": 40,
+    "evil-N240-p98-myc5x48": 92,
+    "evil-N250-p98-s3m25x10": 40,
+    "evil-N253-p98-myc11x23": 46,
+    "evil-N300-p98-myc5x60": 115,
+    "evil-N330-p98-myc11x30": 60,
+    "evil-N345-p98-myc23x15": 30,
+    "evil-N360-p98-chv12x30": 60,
+    "evil-N375-p98-s3m25x15": 59,
+    "evil-N400-p98-myc5x80": 158,
+    "evil-N440-p98-myc11x40": 80,
+    "evil-N460-p98-myc23x20": 40,
+    "evil-N480-p98-chv12x40": 80,
+    "evil-N50-p98-s3m25x2": 8,
+    "evil-N500-p98-myc5x100": 198,
+    "evil-N500-p98-s3m25x20": 77,
+    "evil-N55-p98-myc11x5": 10,
+    "evil-N550-p98-myc11x50": 99,
+    "evil-N575-p98-myc23x25": 50,
+    "evil-N60-p98-chv12x5": 10,
+    "evil-N60-p98-g136x6": 48,
+    "evil-N60-p98-g150x6": 54,
+    "evil-N60-p98-g50634x3": 30,
+    "evil-N60-p98-myc5x12": 24,
+    "evil-N600-p98-myc5x120": 238,
+    "evil-N625-p98-s3m25x25": 95,
+    "evil-N66-p98-g32559x6": 48,
+    "evil-N66-p98-g32565x6": 42,
+    "evil-N660-p98-myc11x60": 113,
+    "evil-N69-p98-myc23x3": 6,
+    "evil-N690-p98-myc23x30": 60,
+    "evil-N700-p98-myc5x140": 280,
+    "evil-N72-p98-chv12x6": 12,
+    "evil-N72-p98-g33896x4": 26,
+    "evil-N72-p98-g33918x4": 26,
+    "evil-N720-p98-chv12x60": 114,
+    "evil-N75-p98-s3m25x3": 12,
+    "evil-N750-p98-s3m25x30": 108,
+    "evil-N76-p98-g33920x4": 28,
+    "evil-N77-p98-myc11x7": 14,
+    "evil-N80-p98-g136x8": 64,
+    "evil-N80-p98-g150x8": 72,
+    "evil-N80-p98-g50634x4": 40,
+    "evil-N80-p98-myc5x16": 32,
+    "evil-N84-p98-chv12x7": 14,
+    "evil-N88-p98-g32559x8": 64,
+    "evil-N88-p98-g32565x8": 56,
+    "evil-N90-p98-g33896x5": 28,
+    "evil-N90-p98-g33918x5": 31,
+    "evil-N92-p98-myc23x4": 8,
+    "evil-N95-p98-g33920x5": 36,
+    "evil-N96-p98-chv12x8": 16,
+    "evil-N99-p98-myc11x9": 18,
+    "farm": 10,
+    "football": 15,
+    "frb100-40": 81,
+    "frb45-21-3": 35,
+    "frb50-23-3": 43,
+    "frb53-24-1": 43,
+    "frb59-26-2": 46,
+    "gen200_p0-9_44": 37,
+    "hamming10-4": 36,
+    "hamming6-2-comp": 32,
+    "hamming6-2": 2,
+    "hamming6-4-comp": 4,
+    "hamming6-4": 12,
+    "ibm32": 13,
+    "insecta-ant-colony1-day38": 6,
+    "insecta-ant-colony3-day09": 9,
+    "johnson16-2-4-comp": 8,
+    "johnson16-2-4": 15,
+    "johnson8-2-4": 7,
+    "johnson8-4-4-comp": 14,
+    "johnson8-4-4": 5,
+    "karate": 20,
+    "keller4": 11,
+    "keller6": 48,
+    "mammalia-kangaroo-interactions": 4,
+    "p_hat1500-1": 10,
+    "p_hat1500-3": 85,
+    "sloane_1dc_128": 15,
+    "sloane_1dc_64": 10,
+    "sloane_1zc_128": 16,
+    "sloane_2dc_128": 5,
+    "socfb-haverford76": 261,
+    "socfb-trinity100": 472,
+    "sorrell4": 21,
+    "sorrell7": 178
+   }
+  }
+ }
+}

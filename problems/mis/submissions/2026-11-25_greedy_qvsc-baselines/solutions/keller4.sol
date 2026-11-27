@@ -1,0 +1,13 @@
+# QvsC baseline greedy_mindeg
+# size = 11
+1
+8
+13
+22
+41
+52
+78
+83
+92
+114
+116

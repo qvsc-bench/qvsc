@@ -1,0 +1,9 @@
+[submission]
+method = "Minimum-degree greedy"
+authors = ["QvsC maintainers"]
+paradigm = "classical"   # classical | quantum | hybrid
+date = "2026-11-25"
+hardware = "Intel(R) Xeon(R) Processor @ 2.10GHz, 1 thread"
+time_limit_s = 0   # wall-clock budget per instance (0 = run to completion)
+code = "https://github.com/qvsc-bench/qvsc/tree/main/problems/mis/baselines"
+description = "Adds a minimum-degree vertex, deletes its neighbourhood, repeats. Deterministic, single pass."

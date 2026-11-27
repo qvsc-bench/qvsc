@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QvsC: Quantum vs Classical Optimization Benchmark</title>
+<meta name="description" content="An open, verifiable benchmark where quantum, hybrid and classical solvers compete on the same optimization instances.">
+<style>
+:root{--ink:#16181d;--muted:#5b6170;--line:#e3e5ea;--bg:#fafafb;--q:#6a1b9a;--qbg:#f3e8f8;--c:#1f5f8b;--cbg:#e6f0f7;--h:#00695c;--hbg:#e2f3f0}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:#fff}
+.wrap{max-width:1040px;margin:0 auto;padding:0 1.25rem}
+header{border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:56px}
+.logo{font-weight:700;font-size:1.15rem;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+.logo .q{color:var(--q)}.logo .c{color:var(--c)}.logo .vs{color:var(--muted);font-weight:500}
+nav a{color:var(--muted);text-decoration:none;margin-left:1.25rem;font-size:.95rem}nav a:hover{color:var(--ink)}
+.hero{padding:3.5rem 1.25rem 2.5rem}
+.hero h1{font-size:2.3rem;line-height:1.15;margin:0 0 1rem;letter-spacing:-.02em;max-width:760px}
+.hero p{font-size:1.1rem;color:var(--muted);max-width:700px;margin:0 0 1.75rem}
+.btn{display:inline-block;padding:.65rem 1.15rem;border-radius:8px;text-decoration:none;font-weight:600;margin:0 .5rem .5rem 0}
+.btn.primary{background:var(--ink);color:#fff}.btn.secondary{border:1px solid var(--line);color:var(--ink)}
+section{padding:2.25rem 0;border-top:1px solid var(--line)}
+h2{font-size:1.4rem;margin:0 0 1rem;letter-spacing:-.01em}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.card{border:1px solid var(--line);border-radius:10px;padding:1rem 1.1rem;background:var(--bg)}
+.card h3{margin:0 0 .35rem;font-size:1rem}.card p{margin:0;color:var(--muted);font-size:.95rem}
+.versus{display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:stretch;margin-bottom:1.5rem}
+.side{border-radius:10px;padding:1.1rem 1.2rem}
+.side.c{background:var(--cbg)}.side.q{background:var(--qbg)}
+.side .lab{font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;font-weight:700}
+.side.c .lab{color:var(--c)}.side.q .lab{color:var(--q)}
+.side .big{font-size:1.6rem;font-weight:700;margin:.2rem 0}.side .sub{color:var(--muted);font-size:.92rem}
+.vs-mid{display:flex;align-items:center;font-weight:700;color:var(--muted)}
+.tabs{display:flex;flex-wrap:wrap;gap:.4rem;margin:0 0 .9rem}
+.tabs button{font:inherit;font-size:.9rem;border:1px solid var(--line);background:#fff;border-radius:999px;padding:.3rem .8rem;cursor:pointer;color:var(--muted)}
+.tabs button[aria-selected=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{padding:.5rem .6rem;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+th{font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:600}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.pill{display:inline-block;padding:.05rem .5rem;border-radius:999px;font-size:.8rem;font-weight:600}
+.pill.classical{background:var(--cbg);color:var(--c)}.pill.quantum{background:var(--qbg);color:var(--q)}.pill.hybrid{background:var(--hbg);color:var(--h)}
+tr.empty td{color:var(--muted);font-style:italic;white-space:normal}
+.note{color:var(--muted);font-size:.88rem;margin-top:.75rem}
+.status{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.status.live{color:var(--h)}.status.planned{color:var(--muted)}
+ol.steps{padding-left:1.2rem;margin:0 0 1rem}ol.steps li{margin:.3rem 0}
+code{font:.88em ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:.05rem .3rem}
+footer{border-top:1px solid var(--line);padding:1.5rem 0 2.5rem;color:var(--muted);font-size:.88rem}
+footer a{color:var(--muted)}
+@media (max-width:640px){.hero h1{font-size:1.8rem}.versus{grid-template-columns:1fr}.vs-mid{justify-content:center}nav a.hide-s{display:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+  <a class="logo" href="#"><span class="q">Q</span><span class="vs">vs</span><span class="c">C</span></a>
+  <div><a href="#leaderboard">Leaderboard</a><a class="hide-s" href="#problems">Problems</a><a href="#submit">Submit</a><a href="https://github.com/qvsc-bench/qvsc">GitHub</a></div>
+</nav></div></header>
+
+<main>
+<div class="wrap hero">
+  <h1>Does the quantum solver beat the best classical one? Let's check.</h1>
+  <p>QvsC (Quantum vs Classical) is an open benchmark for combinatorial optimization. Quantum, hybrid and classical
+  solvers run on the same fixed instances, and every result is recomputed from the submitted solution.
+  No accounts, no fees, no trust required.</p>
+  <a class="btn primary" href="#submit">Submit a result</a>
+  <a class="btn secondary" href="#leaderboard">See the leaderboard</a>
+</div>
+
+<section><div class="wrap">
+  <h2>Why this exists</h2>
+  <div class="grid">
+    <div class="card"><h3>Same instances</h3><p>Fixed, versioned instance sets with hashes and best-known values. No cherry-picking.</p></div>
+    <div class="card"><h3>Strong classical baselines</h3><p>Quantum claims are measured against good classical solvers, not weak strawmen.</p></div>
+    <div class="card"><h3>Verified, not reported</h3><p>CI checks every solution file. A number appears only if the solution is feasible.</p></div>
+    <div class="card"><h3>Fair accounting</h3><p>Quantum entries state device, shots, device time and any classical post-processing.</p></div>
+  </div>
+</div></section>
+
+<section id="leaderboard"><div class="wrap">
+  <h2>Leaderboard: <span id="lb-problem">Maximum Independent Set</span></h2>
+  <div class="versus" id="versus">
+    <div class="side c"><div class="lab">Best classical</div><div class="big" id="vs-c">…</div><div class="sub" id="vs-c-sub"></div></div>
+    <div class="vs-mid">vs</div>
+    <div class="side q"><div class="lab">Best quantum or hybrid</div><div class="big" id="vs-q">…</div><div class="sub" id="vs-q-sub"></div></div>
+  </div>
+  <div class="tabs" role="tablist" id="tabs"></div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>#</th><th>Method</th><th>Paradigm</th><th class="num">Hits</th><th class="num">Attempted</th><th class="num">Mean gap</th><th class="num">Time limit (s)</th><th>Hardware</th></tr></thead>
+    <tbody id="rows"><tr class="empty"><td colspan="8">Loading…</td></tr></tbody>
+  </table></div>
+  <p class="note">Hits count instances where the solution matches the best-known value. Mean gap is the average relative
+  distance from the best-known value over the attempted instances. Time limits and hardware differ between entries: read them before comparing.
+  Per-instance results: <a href="https://github.com/qvsc-bench/qvsc/blob/main/problems/mis/LEADERBOARD.md">LEADERBOARD.md</a> ·
+  raw data: <a href="data/mis.json">mis.json</a>.</p>
+</div></section>
+
+<section id="problems"><div class="wrap">
+  <h2>Problems</h2>
+  <div class="grid">
+    <div class="card"><div class="status live">Live</div><h3>Maximum Independent Set</h3><p>143 instances. Native problem of Rydberg-atom processors; one-line QUBO for annealers and QAOA.</p></div>
+    <div class="card"><div class="status planned">Planned</div><h3>Max-Cut</h3><p>The standard QAOA benchmark.</p></div>
+    <div class="card"><div class="status planned">Planned</div><h3>K-SAT</h3><p>Random instances around the hardness threshold.</p></div>
+    <div class="card"><div class="status planned">Planned</div><h3>LABS</h3><p>Low-autocorrelation binary sequences, used in recent quantum-advantage claims.</p></div>
+  </div>
+</div></section>
+
+<section id="submit"><div class="wrap">
+  <h2>Submit a result</h2>
+  <p>Results enter through a GitHub pull request. Quantum and hybrid entries are especially welcome; so are stronger classical solvers, which raise the bar for everyone.</p>
+  <ol class="steps">
+    <li>Fork <a href="https://github.com/qvsc-bench/qvsc">qvsc-bench/qvsc</a> and add a folder under <code>problems/mis/submissions/</code>.</li>
+    <li>Put in it a <code>submission.toml</code> (method, paradigm, hardware, time budget) and one <code>.sol</code> file per instance you solved.</li>
+    <li>Run <code>python -m qvsc.mis.leaderboard --check</code> and open the pull request. On merge, the leaderboard updates itself.</li>
+  </ol>
+  <a class="btn primary" href="https://github.com/qvsc-bench/qvsc/blob/main/CONTRIBUTING.md">Submission guide</a>
+  <a class="btn secondary" href="https://github.com/qvsc-bench/qvsc">View on GitHub</a>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  QvsC: Quantum vs Classical Optimization Benchmark · code MIT, instances under their sources' licences ·
+  MIS quantum track from Marino, Buffoni &amp; Zavalnij, <a href="https://doi.org/10.1038/s42005-026-02606-7">Commun. Phys. 9, 239 (2026)</a>
+</div></footer>
+
+<script>
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let DATA = null, TRACK = "all";
+
+function render() {
+  const rows = DATA.tracks[TRACK] || [];
+  const tb = document.getElementById("rows");
+  tb.innerHTML = rows.length ? rows.map((r, i) => `<tr><td>${i + 1}</td><td>${esc(r.method)}</td>
+    <td><span class="pill ${esc(r.paradigm)}">${esc(r.paradigm)}</span></td>
+    <td class="num">${r.hits}</td><td class="num">${r.attempted}/${r.total}</td>
+    <td class="num">${r.gap.toFixed(2)}%</td><td class="num">${esc(r.time_limit)}</td><td>${esc(r.hardware)}</td></tr>`).join("")
+    : `<tr class="empty"><td colspan="8">No submissions on this track yet.</td></tr>`;
+  if (!rows.some(r => r.paradigm !== "classical"))
+    tb.insertAdjacentHTML("beforeend", `<tr class="empty"><td colspan="8">No quantum or hybrid submission yet on this track. <a href="#submit">Be the first.</a></td></tr>`);
+
+  const total = rows.length ? rows[0].total : 0;
+  const best = p => rows.find(r => p(r.paradigm));
+  const c = best(p => p === "classical"), q = best(p => p !== "classical");
+  document.getElementById("vs-c").textContent = c ? `${c.hits} / ${total}` : "none yet";
+  document.getElementById("vs-c-sub").textContent = c ? `instances at best known · ${c.method}, ${c.time_limit} s per instance` : "";
+  document.getElementById("vs-q").textContent = q ? `${q.hits} / ${total}` : "none yet";
+  document.getElementById("vs-q-sub").innerHTML = q ? esc(`instances at best known · ${q.method}, ${q.time_limit} s per instance`)
+    : `No quantum or hybrid entry yet. <a href="#submit">Submit one.</a>`;
+  document.querySelectorAll("#tabs button").forEach(b => b.setAttribute("aria-selected", b.dataset.t === TRACK));
+}
+
+fetch("data/mis.json").then(r => r.json()).then(d => {
+  DATA = d;
+  const titles = d.track_titles || {};
+  document.getElementById("tabs").innerHTML = Object.keys(d.tracks).filter(t => d.tracks[t].length)
+    .map(t => `<button role="tab" data-t="${esc(t)}">${esc(titles[t] || t)}</button>`).join("");
+  document.querySelectorAll("#tabs button").forEach(b => b.onclick = () => { TRACK = b.dataset.t; render(); });
+  render();
+}).catch(() => {
+  document.getElementById("rows").innerHTML = `<tr class="empty"><td colspan="8">Could not load the leaderboard data. See <a href="data/mis.json">mis.json</a>.</td></tr>`;
+});
+</script>
+</body>
+</html>

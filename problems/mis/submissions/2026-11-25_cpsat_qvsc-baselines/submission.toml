@@ -1,0 +1,10 @@
+[submission]
+method = "OR-Tools CP-SAT (edge formulation)"
+authors = ["QvsC maintainers"]
+paradigm = "classical"   # classical | quantum | hybrid
+date = "2026-11-25"
+hardware = "Intel(R) Xeon(R) Processor @ 2.10GHz, 4 CP-SAT threads"
+time_limit_s = 30   # wall-clock budget per instance (0 = run to completion)
+code = "https://github.com/qvsc-bench/qvsc/tree/main/problems/mis/baselines"
+description = "Exact branch-and-bound / clause learning solver from Google OR-Tools, used as an anytime solver with a time limit; certifies optimality when it closes the gap."
+exact = true   # results.csv upper_bound column holds proven bounds

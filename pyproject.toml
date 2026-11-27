@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qvsc"
+version = "0.1.0"
+description = "QvsC: Quantum vs Classical Optimization Benchmark. Open, verifiable benchmarks for quantum, hybrid and classical solvers"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Raffaele Marino" }]
+requires-python = ">=3.11"
+dependencies = []
+keywords = ["quantum computing", "benchmark", "combinatorial optimization", "maximum independent set", "QUBO"]
+
+[project.optional-dependencies]
+cpsat = ["ortools>=9.10"]
+
+[project.urls]
+Homepage = "https://qvsc-bench.github.io/qvsc/"
+Repository = "https://github.com/qvsc-bench/qvsc"
+
+[tool.setuptools.packages.find]
+include = ["qvsc*"]
