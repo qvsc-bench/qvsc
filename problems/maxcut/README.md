@@ -59,10 +59,9 @@ For each submission and track:
 | Column | Meaning |
 |:--|:--|
 | **Hits** | number of instances where the submitted cut is at least the target |
-| **At 99%** | number of instances where the cut is at least 99% of the target |
 | **Attempted** | instances with a solution file in the submission / instances in the track |
 | **Mean ratio** | average of cut / target over the attempted instances (see below) |
-| **TTT99** | median *time-to-target*: over the instances counted in "At 99%", the wall-clock time at which the run first reached 99% of the target |
+| **Time to target** | median *time-to-target* over the hits: the wall-clock time at which the run first reached the target |
 | **Time limit** | the budget per instance declared by the submitter |
 
 Rows are sorted by hits, then mean ratio, then number of attempted instances.
@@ -82,7 +81,7 @@ Three caveats:
    the Biq Mac optimal values.
 2. **It compresses differences.** On Max-Cut even trivial methods cut most of the weight (the
    greedy baseline averages about 89%), so the gap between 99.2% and 99.8% is large in practice.
-   Read the mean ratio together with hits and at 99%.
+   Read the mean ratio together with hits.
 3. **It moves with the target.** When a submission raises a best-known value, the target goes up
    and every other submission's ratio on that instance goes down. This is intended: the leaderboard
    always measures the distance from the best value known.
@@ -91,16 +90,21 @@ This is not the approximation ratio of approximation-algorithm theory (cut / opt
 the worst case, e.g. 0.878 for Goemans–Williamson): it is an empirical average over a fixed set of
 instances.
 
-### How to read TTT99
+### How to read the time to target
 
-Time-to-target is the usual way to compare a fast method with a slow one: not "how good is the final
-answer" but "how long until the answer is good enough". QvsC uses 99% of the target as "good enough".
+Time-to-target (also called time-to-solution) is the usual way to compare a fast method with a slow
+one: not "how good is the final answer" but "how long until the answer reaches the target". It is
+computed only on the instances the method hits; on the others it never reached the target.
+
+Why not a looser threshold such as 99% of the target? On Max-Cut it does not discriminate: the
+reference simulated annealing reaches 99% of the target on 372 of 401 instances, with a median time
+of about 0.01 s. Only reaching the target itself separates good methods from very good ones.
 
 * It is computed from the submission's trajectory files (`trajectories/<instance>.traj`, one line
   `time_s cut` per improvement), so it is recomputed against the current target whenever the target
-  moves. Without trajectories, the `time_to_target_s` column of `results.csv` is used.
-* It is a median over the instances the method brought within 99%, which are not the same instances
-  for every method: compare TTT99 between two methods only together with their "At 99%" count.
+  moves. Without trajectories, the `time_to_best_s` column of `results.csv` is used.
+* It is a median over the instances the method hits, which are not the same instances for every
+  method: compare times between two methods only together with their hits.
 * Times are **reported by the submitter**, not measured by QvsC. Budgets and hardware are in each
   `submission.toml`; the reference baselines are documented in [REPRODUCE.md](REPRODUCE.md).
 

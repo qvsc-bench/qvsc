@@ -147,16 +147,16 @@ const VIEWS = {
       raw data: <a href="data/mis.json">mis.json</a>.`
   },
   maxcut: {
-    head: ["#", "Method", "Paradigm", "Hits", "At 99%", "Attempted", "Mean ratio", "TTT99 (s)", "Time limit (s)", "Hardware"],
-    num: [false, false, false, true, true, true, true, true, true, false],
-    row: r => [esc(r.method), pill(r.paradigm), r.hits, r.at99, `${r.attempted}/${r.total}`, `${r.ratio.toFixed(3)}%`,
-               r.ttt99 == null ? "–" : Number(r.ttt99).toPrecision(3), esc(r.time_limit), esc(r.hardware)],
+    head: ["#", "Method", "Paradigm", "Hits", "Attempted", "Mean ratio", "Time to target (s)", "Time limit (s)", "Hardware"],
+    num: [false, false, false, true, true, true, true, true, false],
+    row: r => [esc(r.method), pill(r.paradigm), r.hits, `${r.attempted}/${r.total}`, `${r.ratio.toFixed(3)}%`,
+               r.tts == null ? "–" : Number(r.tts).toPrecision(3), esc(r.time_limit), esc(r.hardware)],
     score: r => `${r.hits} / ${r.total}`,
     sub: r => `instances at target · mean ratio ${r.ratio.toFixed(2)}% · ${r.method}, ${r.time_limit} s per instance`,
     note: `Each instance has a target: the larger of the best cut verified here and the best value published in the literature
       (for planted instances: the optimum, known by construction). Hits: instances where the cut reaches the target.
-      At 99%: instances where the cut is within 1% of the target. Mean ratio: average of cut / target over the attempted instances.
-      TTT99: median time at which the run first got within 1% of the target, over the instances counted in "At 99%" (self-reported times).
+      Mean ratio: average of cut / target over the attempted instances.
+      Time to target: median, over the hits, of the time at which the run first reached the target (self-reported times).
       <a href="https://github.com/qvsc-bench/qvsc/blob/main/problems/maxcut/README.md#how-the-leaderboard-works">How to read these numbers</a>.
       Per-instance results: <a href="https://github.com/qvsc-bench/qvsc/blob/main/problems/maxcut/LEADERBOARD.md">LEADERBOARD.md</a> ·
       raw data: <a href="data/maxcut.json">maxcut.json</a>.`

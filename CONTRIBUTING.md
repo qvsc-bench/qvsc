@@ -97,11 +97,11 @@ Same folder layout, under `problems/maxcut/submissions/<YYYY-MM-DD>_<method>_<te
   ```
 
 * **`results.csv`** (optional): `instance,reported_cut,time_to_best_s,total_time_s,seed,upper_bound`,
-  plus `qpu_time_s` and `time_to_target_s` (time to first reach 99% of the target shown in
-  `instances/index.csv` when you ran) if you have them.
+  plus `qpu_time_s` if you have it.
 * **`trajectories/<instance>.traj`** (optional, recommended): one line `time_s cut` each time your best
-  cut improves. The leaderboard uses it to compute time-to-target (time to reach 99% of the target)
-  against the *current* target, so your TTT stays meaningful when someone later raises a best-known value.
+  cut improves. The leaderboard uses it to compute the time at which you first reached the target,
+  against the *current* target, so it stays correct when someone later raises a best-known value.
+  Without trajectories, `time_to_best_s` is used.
 * Validate with `python -m qvsc.maxcut.leaderboard --check`. Do not edit `problems/maxcut/LEADERBOARD.md`,
   `docs/data/` or `problems/maxcut/instances/index.csv`.
 

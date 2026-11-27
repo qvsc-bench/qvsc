@@ -38,8 +38,8 @@ or [problems/mis/LEADERBOARD.md](problems/mis/LEADERBOARD.md).
 
 ## Current leaderboard (Max-Cut)
 
-With 10 seconds per instance on one CPU core, simple simulated annealing gets within 1% of the best
-known value on 372 of 401 instances. The open cases are where quantum claims should aim: on 13 of the
+With 10 seconds per instance on one CPU core, simple simulated annealing reaches the best known value
+on 287 of 401 instances, and on average its cuts are 0.22% below it. The open cases are where quantum claims should aim: on 13 of the
 28 planted instances, whose optimum is known by construction, no baseline finds the optimum (this
 includes complete graphs with only 100–156 vertices), and on 49 G-set graphs the baselines stay below
 the best values published in the literature. Full tables: [web](https://qvsc-bench.github.io/qvsc/)

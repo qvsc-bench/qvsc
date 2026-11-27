@@ -22,9 +22,8 @@
     "total": 401,
     "hits": 287,
     "ratio": 99.7752864928582,
-    "at99": 372,
-    "ttt99": 0.0111525,
-    "ttt_n": 372
+    "tts": 0.013012,
+    "tts_n": 287
    },
    {
     "id": "2026-11-27_tabu_qvsc-baselines",
@@ -37,9 +36,8 @@
     "total": 401,
     "hits": 242,
     "ratio": 99.51966196814534,
-    "at99": 346,
-    "ttt99": 0.00039999999999999996,
-    "ttt_n": 346
+    "tts": 0.0004035,
+    "tts_n": 242
    },
    {
     "id": "2026-11-27_bm_qvsc-baselines",
@@ -52,9 +50,8 @@
     "total": 401,
     "hits": 237,
     "ratio": 99.16216104682792,
-    "at99": 307,
-    "ttt99": 0.001536,
-    "ttt_n": 307
+    "tts": 0.0021,
+    "tts_n": 237
    },
    {
     "id": "2026-11-27_cpsat_qvsc-baselines",
@@ -67,9 +64,8 @@
     "total": 401,
     "hits": 69,
     "ratio": 94.39315451742635,
-    "at99": 95,
-    "ttt99": null,
-    "ttt_n": 0
+    "tts": null,
+    "tts_n": 0
    },
    {
     "id": "2026-11-27_exact_qvsc-baselines",
@@ -82,9 +78,8 @@
     "total": 401,
     "hits": 16,
     "ratio": 100.0,
-    "at99": 16,
-    "ttt99": null,
-    "ttt_n": 0
+    "tts": 1.2472310000000002,
+    "tts_n": 16
    },
    {
     "id": "2026-11-27_greedy-ls_qvsc-baselines",
@@ -97,9 +92,8 @@
     "total": 401,
     "hits": 8,
     "ratio": 89.3732402038145,
-    "at99": 23,
-    "ttt99": null,
-    "ttt_n": 0
+    "tts": 0.0008,
+    "tts_n": 8
    }
   ],
   "literature": [
@@ -114,9 +108,8 @@
     "total": 283,
     "hits": 189,
     "ratio": 99.8373899264683,
-    "at99": 267,
-    "ttt99": 0.008138,
-    "ttt_n": 267
+    "tts": 0.010125,
+    "tts_n": 189
    },
    {
     "id": "2026-11-27_tabu_qvsc-baselines",
@@ -129,9 +122,8 @@
     "total": 283,
     "hits": 173,
     "ratio": 99.7093282049748,
-    "at99": 257,
-    "ttt99": 0.000327,
-    "ttt_n": 257
+    "tts": 0.000422,
+    "tts_n": 173
    },
    {
     "id": "2026-11-27_bm_qvsc-baselines",
@@ -144,9 +136,8 @@
     "total": 283,
     "hits": 169,
     "ratio": 99.1423411597835,
-    "at99": 216,
-    "ttt99": 0.001534,
-    "ttt_n": 216
+    "tts": 0.003162,
+    "tts_n": 169
    },
    {
     "id": "2026-11-27_cpsat_qvsc-baselines",
@@ -159,9 +150,8 @@
     "total": 283,
     "hits": 29,
     "ratio": 94.83105903611828,
-    "at99": 55,
-    "ttt99": null,
-    "ttt_n": 0
+    "tts": null,
+    "tts_n": 0
    },
    {
     "id": "2026-11-27_greedy-ls_qvsc-baselines",
@@ -174,9 +164,8 @@
     "total": 283,
     "hits": 4,
     "ratio": 90.65462592291557,
-    "at99": 19,
-    "ttt99": null,
-    "ttt_n": 0
+    "tts": 0.0066,
+    "tts_n": 4
    }
   ],
   "hardware-native": [
@@ -191,9 +180,8 @@
     "total": 51,
     "hits": 44,
     "ratio": 99.88780606856358,
-    "at99": 49,
-    "ttt99": 0.051882,
-    "ttt_n": 49
+    "tts": 0.057998,
+    "tts_n": 44
    },
    {
     "id": "2026-11-27_bm_qvsc-baselines",
@@ -206,9 +194,8 @@
     "total": 51,
     "hits": 31,
     "ratio": 99.13681798828983,
-    "at99": 37,
-    "ttt99": 0.001161,
-    "ttt_n": 37
+    "tts": 0.000649,
+    "tts_n": 31
    },
    {
     "id": "2026-11-27_tabu_qvsc-baselines",
@@ -221,9 +208,8 @@
     "total": 51,
     "hits": 31,
     "ratio": 99.12937113168482,
-    "at99": 40,
-    "ttt99": 0.000699,
-    "ttt_n": 40
+    "tts": 0.000407,
+    "tts_n": 31
    },
    {
     "id": "2026-11-27_cpsat_qvsc-baselines",
@@ -236,9 +222,8 @@
     "total": 51,
     "hits": 20,
     "ratio": 97.01791919815525,
-    "at99": 20,
-    "ttt99": null,
-    "ttt_n": 0
+    "tts": null,
+    "tts_n": 0
    },
    {
     "id": "2026-11-27_exact_qvsc-baselines",
@@ -251,9 +236,8 @@
     "total": 51,
     "hits": 2,
     "ratio": 100.0,
-    "at99": 2,
-    "ttt99": null,
-    "ttt_n": 0
+    "tts": 0.0011459999999999999,
+    "tts_n": 2
    },
    {
     "id": "2026-11-27_greedy-ls_qvsc-baselines",
@@ -266,9 +250,8 @@
     "total": 51,
     "hits": 0,
     "ratio": 78.77148317527389,
-    "at99": 0,
-    "ttt99": null,
-    "ttt_n": 0
+    "tts": null,
+    "tts_n": 0
    }
   ],
   "qaoa": [
@@ -283,9 +266,8 @@
     "total": 50,
     "hits": 48,
     "ratio": 99.99458566335245,
-    "at99": 50,
-    "ttt99": 0.006633,
-    "ttt_n": 50
+    "tts": 0.01515,
+    "tts_n": 48
    },
    {
     "id": "2026-11-27_bm_qvsc-baselines",
@@ -298,9 +280,8 @@
     "total": 50,
     "hits": 33,
     "ratio": 99.7956441364774,
-    "at99": 48,
-    "ttt99": 0.0011725,
-    "ttt_n": 48
+    "tts": 0.000232,
+    "tts_n": 33
    },
    {
     "id": "2026-11-27_tabu_qvsc-baselines",
@@ -313,9 +294,8 @@
     "total": 50,
     "hits": 32,
     "ratio": 99.45866057377769,
-    "at99": 41,
-    "ttt99": 0.000177,
-    "ttt_n": 41
+    "tts": 9.05e-05,
+    "tts_n": 32
    },
    {
     "id": "2026-11-27_cpsat_qvsc-baselines",
@@ -328,9 +308,8 @@
     "total": 50,
     "hits": 19,
     "ratio": 90.952508468179,
-    "at99": 19,
-    "ttt99": null,
-    "ttt_n": 0
+    "tts": null,
+    "tts_n": 0
    },
    {
     "id": "2026-11-27_exact_qvsc-baselines",
@@ -343,9 +322,8 @@
     "total": 50,
     "hits": 12,
     "ratio": 100.0,
-    "at99": 12,
-    "ttt99": null,
-    "ttt_n": 0
+    "tts": 1.2472310000000002,
+    "tts_n": 12
    },
    {
     "id": "2026-11-27_greedy-ls_qvsc-baselines",
@@ -358,9 +336,8 @@
     "total": 50,
     "hits": 4,
     "ratio": 92.77479557907638,
-    "at99": 4,
-    "ttt99": null,
-    "ttt_n": 0
+    "tts": 0.00035,
+    "tts_n": 4
    }
   ],
   "planted": [
@@ -375,9 +352,8 @@
     "total": 28,
     "hits": 12,
     "ratio": 98.47070098794039,
-    "at99": 15,
-    "ttt99": 0.003424,
-    "ttt_n": 15
+    "tts": 0.0025415,
+    "tts_n": 12
    },
    {
     "id": "2026-11-27_sa_qvsc-baselines",
@@ -390,9 +366,8 @@
     "total": 28,
     "hits": 12,
     "ratio": 98.4685189005022,
-    "at99": 15,
-    "ttt99": 0.052531,
-    "ttt_n": 15
+    "tts": 0.039099,
+    "tts_n": 12
    },
    {
     "id": "2026-11-27_tabu_qvsc-baselines",
@@ -405,9 +380,8 @@
     "total": 28,
     "hits": 9,
     "ratio": 97.39527429171993,
-    "at99": 11,
-    "ttt99": 0.063,
-    "ttt_n": 11
+    "tts": 0.174479,
+    "tts_n": 9
    },
    {
     "id": "2026-11-27_cpsat_qvsc-baselines",
@@ -420,9 +394,8 @@
     "total": 28,
     "hits": 3,
     "ratio": 91.16324109911189,
-    "at99": 3,
-    "ttt99": null,
-    "ttt_n": 0
+    "tts": null,
+    "tts_n": 0
    },
    {
     "id": "2026-11-27_exact_qvsc-baselines",
@@ -435,9 +408,8 @@
     "total": 28,
     "hits": 2,
     "ratio": 100.0,
-    "at99": 2,
-    "ttt99": null,
-    "ttt_n": 0
+    "tts": 191.5566035,
+    "tts_n": 2
    },
    {
     "id": "2026-11-27_greedy-ls_qvsc-baselines",
@@ -450,9 +422,8 @@
     "total": 28,
     "hits": 0,
     "ratio": 85.05372892733185,
-    "at99": 0,
-    "ttt99": null,
-    "ttt_n": 0
+    "tts": null,
+    "tts_n": 0
    }
   ],
   "gate-scale": [
@@ -467,9 +438,8 @@
     "total": 210,
     "hits": 203,
     "ratio": 99.89595858942248,
-    "at99": 204,
-    "ttt99": 0.000684,
-    "ttt_n": 204
+    "tts": 0.001774,
+    "tts_n": 203
    },
    {
     "id": "2026-11-27_tabu_qvsc-baselines",
@@ -482,9 +452,8 @@
     "total": 210,
     "hits": 194,
     "ratio": 99.91538412740019,
-    "at99": 207,
-    "ttt99": 0.000114,
-    "ttt_n": 207
+    "tts": 0.0002085,
+    "tts_n": 194
    },
    {
     "id": "2026-11-27_sa_qvsc-baselines",
@@ -497,9 +466,8 @@
     "total": 210,
     "hits": 194,
     "ratio": 99.86229701827627,
-    "at99": 202,
-    "ttt99": 0.001156,
-    "ttt_n": 202
+    "tts": 0.0042155000000000005,
+    "tts_n": 194
    },
    {
     "id": "2026-11-27_cpsat_qvsc-baselines",
@@ -512,9 +480,8 @@
     "total": 210,
     "hits": 59,
     "ratio": 94.53516075143439,
-    "at99": 71,
-    "ttt99": null,
-    "ttt_n": 0
+    "tts": null,
+    "tts_n": 0
    },
    {
     "id": "2026-11-27_exact_qvsc-baselines",
@@ -527,9 +494,8 @@
     "total": 210,
     "hits": 16,
     "ratio": 100.0,
-    "at99": 16,
-    "ttt99": null,
-    "ttt_n": 0
+    "tts": 1.2472310000000002,
+    "tts_n": 16
    },
    {
     "id": "2026-11-27_greedy-ls_qvsc-baselines",
@@ -542,9 +508,8 @@
     "total": 210,
     "hits": 5,
     "ratio": 90.84417193636507,
-    "at99": 20,
-    "ttt99": null,
-    "ttt_n": 0
+    "tts": 0.0004,
+    "tts_n": 5
    }
   ]
  },

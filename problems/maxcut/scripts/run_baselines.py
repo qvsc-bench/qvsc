@@ -78,7 +78,7 @@ def run_one(algo, row, sub, a):
 
 
 def thin_trajectory(path: Path, keep: float = 0.98) -> None:
-    """Keep the improvements within 2% of the final cut: enough for time-to-target at 99% of any
+    """Keep the improvements within 2% of the final cut: enough for time-to-target at any
     target at or above the final cut, and much smaller files."""
     pts = [line.split() for line in path.read_text().splitlines() if line.strip()]
     if not pts:
