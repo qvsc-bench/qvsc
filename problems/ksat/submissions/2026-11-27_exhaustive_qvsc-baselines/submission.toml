@@ -1,0 +1,10 @@
+[submission]
+method = "Exhaustive search (Gray code)"
+authors = ["QvsC maintainers"]
+paradigm = "classical"   # classical | quantum | hybrid
+kind = "exact"
+date = "2026-11-27"
+hardware = "Intel(R) Xeon(R) Processor @ 2.30GHz, 1 thread"
+time_limit_s = 0   # runs to completion: all 2^n assignments
+code = "https://github.com/qvsc-bench/qvsc/tree/main/problems/ksat/baselines/exhaustive.cpp"
+description = "Enumerates all 2^n assignments in Gray-code order (n <= 22 here). Proves the optimum; time_to_solution_s is when the enumeration first met an optimal assignment, total_time_s the full enumeration."

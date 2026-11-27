@@ -1,7 +1,7 @@
 {
   "title": "QvsC: Quantum vs Classical Optimization Benchmark",
   "upload_type": "software",
-  "description": "<p>An open, verifiable benchmark where quantum, hybrid and classical solvers compete on the same combinatorial optimization instances. Every leaderboard entry is recomputed from a submitted solution file. Two problems are live: Maximum Independent Set (143 instances) and Max-Cut (401 instances, including planted instances on quantum hardware graphs), each with classical reference baselines. Leaderboard: <a href=\"https://qvsc-bench.github.io/qvsc/\">qvsc-bench.github.io/qvsc</a>.</p>",
+  "description": "<p>An open, verifiable benchmark where quantum, hybrid and classical solvers compete on the same combinatorial optimization instances. Every leaderboard entry is recomputed from a submitted solution file. Three problems are live: Maximum Independent Set (143 instances) and Max-Cut (401 instances, including planted instances on quantum hardware graphs), each with classical reference baselines, and K-SAT (89,217 instances indexed from RandCSPBench, SATLIB and a published trapped-ion QAOA experiment, with the published per-instance results as reference). Leaderboard: <a href=\"https://qvsc-bench.github.io/qvsc/\">qvsc-bench.github.io/qvsc</a>.</p>",
   "creators": [
     {
       "name": "Marino, Raffaele"
@@ -17,13 +17,25 @@
     "max-cut",
     "quantum advantage",
     "QAOA",
-    "quantum annealing"
+    "quantum annealing",
+    "K-SAT",
+    "satisfiability"
   ],
   "related_identifiers": [
     {
       "identifier": "10.1038/s42005-026-02606-7",
       "relation": "references",
       "resource_type": "publication-article"
+    },
+    {
+      "identifier": "arXiv:2602.18419",
+      "relation": "references",
+      "resource_type": "publication-preprint"
+    },
+    {
+      "identifier": "10.5281/zenodo.8201693",
+      "relation": "references",
+      "resource_type": "dataset"
     },
     {
       "identifier": "https://qvsc-bench.github.io/qvsc/",
