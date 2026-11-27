@@ -7,9 +7,10 @@ solution from the file you send.
 Quantum and hybrid submissions are the reason this benchmark exists. Classical submissions are just as
 welcome: a stronger classical baseline raises the bar every quantum claim has to clear.
 
-Two problems are live: Maximum Independent Set (`problems/mis/`) and Max-Cut (`problems/maxcut/`).
-The steps below use MIS as the example; Max-Cut works the same way, with the differences listed in
-[Max-Cut submissions](#max-cut-submissions).
+Three problems are live: Maximum Independent Set (`problems/mis/`), Max-Cut (`problems/maxcut/`) and
+K-SAT (`problems/ksat/`). The steps below use MIS as the example; the other two work the same way,
+with the differences listed in [Max-Cut submissions](#max-cut-submissions) and
+[K-SAT submissions](#k-sat-submissions).
 
 ## 1. Create a folder
 
@@ -115,6 +116,40 @@ For gate-based devices: the `heavyhex` instances use IBM coupling maps (no SWAP 
 `gate-scale` track collects every instance with at most 156 vertices (one qubit per vertex on IBM Heron r2).
 The `qaoa` track contains the usual QAOA families at all sizes, up to 10,000 vertices, for comparison
 with simulators and classical methods.
+
+## K-SAT submissions
+
+Same folder layout, under `problems/ksat/submissions/<YYYY-MM-DD>_<method>_<team>/`, same `submission.toml`
+(you may add `kind = "..."`, e.g. `"QAOA (hardware)"` or `"local search"`, shown in the leaderboard).
+The instances are not in the repository: download them first with
+`python -m qvsc.ksat.fetch --out data/ksat` (add `--only randcspbench`, `--only pelofske2023` or
+`--only satlib` to fetch one source).
+
+* **Assignments**, in either form (both may be used in one submission):
+  * `solutions.txt.gz`: one line `<instance> <bit string>` per instance, where character i of the bit
+    string is the value of variable i+1. This is the practical choice for many instances.
+  * `solutions/<instance>.sol`: a bit string, or literals in SAT Competition style (`v 1 -2 3 ... 0`,
+    every variable exactly once).
+
+  ```bash
+  python -m qvsc.ksat.verify data/ksat/3SAT/test/N256_M1075_id3.cnf solutions/3SAT_test_N256_M1075_id3.sol
+  ```
+
+  Instance names are in `problems/ksat/instances/index.csv.gz` (`name` column; `path` is the file
+  below `data/ksat`). Assignments that do not satisfy the formula are accepted: they count toward the
+  residual energy, not toward the score.
+* **`results.csv`** (optional): `instance,time_to_solution_s,total_time_s`, plus `qpu_time_s` and
+  `shots` if you have them.
+* Validate with `python -m qvsc.ksat.leaderboard --check --instances data/ksat`. Do not edit
+  `problems/ksat/LEADERBOARD.md`, `docs/data/` or `problems/ksat/instances/index.csv.gz`.
+
+How your results are scored (score S, residual energy, time to solution, as in Skenderi et al. 2026):
+[problems/ksat/README.md](problems/ksat/README.md#how-the-leaderboard-works).
+
+For gate-based devices: the `qaoa-hardware` track has the 17 instances (N = 6 to 22) that Pelofske et
+al. ran on trapped-ion hardware, with their measured results as reference rows, and `satlib-uf20` has
+1000 satisfiable instances with 20 variables. Both need one qubit per variable and 3-body terms. On
+the RandCSPBench tracks, N = 16 to 128 fits current devices too.
 
 ## Rules of thumb for a fair comparison
 

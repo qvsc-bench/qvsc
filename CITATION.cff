@@ -46,3 +46,41 @@ references:
     start: 239
     year: 2026
     doi: "10.1038/s42005-026-02606-7"
+  - type: article
+    title: "Benchmarking Graph Neural Networks in Solving Hard Constraint Satisfaction Problems"
+    authors:
+      - family-names: Skenderi
+        given-names: Geri
+      - family-names: Buffoni
+        given-names: Lorenzo
+      - family-names: "D'Amico"
+        given-names: Francesco
+      - family-names: Machado
+        given-names: David
+      - family-names: Marino
+        given-names: Raffaele
+      - family-names: Negri
+        given-names: Matteo
+      - family-names: Ricci-Tersenghi
+        given-names: Federico
+      - family-names: Lucibello
+        given-names: Carlo
+      - family-names: Angelini
+        given-names: Maria Chiara
+    year: 2026
+    url: "https://arxiv.org/abs/2602.18419"
+    repository-code: "https://github.com/ArtLabBocconi/RandCSPBench"
+  - type: conference-paper
+    title: "High-Round QAOA for MAX k-SAT on Trapped Ion NISQ Devices"
+    authors:
+      - family-names: Pelofske
+        given-names: Elijah
+      - family-names: Bärtschi
+        given-names: Andreas
+      - family-names: Golden
+        given-names: John
+      - family-names: Eidenbenz
+        given-names: Stephan
+    year: 2023
+    collection-title: "2023 IEEE International Conference on Quantum Computing and Engineering (QCE)"
+    url: "https://arxiv.org/abs/2306.03238"

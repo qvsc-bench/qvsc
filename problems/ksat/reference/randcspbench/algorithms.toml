@@ -1,0 +1,51 @@
+# Algorithms of Skenderi et al. (2026), "Benchmarking Graph Neural Networks in Solving Hard
+# Constraint Satisfaction Problems", arXiv:2602.18419. Per-instance results imported from
+# https://github.com/ArtLabBocconi/RandCSPBench/tree/main/results_evaluation (MIT licence) by
+# problems/ksat/scripts/import_randcspbench.py. "unsat" = clauses left unsatisfied by the
+# algorithm's final assignment. Assignments were not published, so these rows are reported, not
+# verified by QvsC. Budgets: "nsteps = A N^2" counts single-variable update attempts (A N sweeps).
+#
+# Hardware (paper, Table 3 caption): K-SAT runs on a Lenovo workstation with an AMD Ryzen
+# Threadripper PRO 5975WX (32 cores) and 251 GB RAM.
+
+[algorithms."FMS_nsteps=100N^2"]
+method = "Focused Metropolis Search (FMS)"
+kind = "local search"
+budget = "100 N² flip attempts; η = 0.37 (K=3), 0.293 (K=4)"
+in_table1 = true
+reference = "Seitz, Alava & Orponen, J. Stat. Mech. (2005) P06006"
+
+[algorithms."FMS_nsteps=1000N^2"]
+method = "Focused Metropolis Search (FMS), 10× budget"
+kind = "local search"
+budget = "1000 N² flip attempts"
+in_table1 = false
+reference = "Seitz, Alava & Orponen, J. Stat. Mech. (2005) P06006"
+
+[algorithms."SimulatedAnnealing_nsteps=1000N^2"]
+method = "Simulated annealing (SA)"
+kind = "local search"
+budget = "1000 N sweeps, linear schedule from T = 0.2 to 0"
+in_table1 = true
+reference = "Kirkpatrick, Gelatt & Vecchi, Science 220 (1983) 671"
+
+[algorithms."SurveyPropagation_frac-decimated=0.00125"]
+method = "Survey propagation + decimation (SP)"
+kind = "message passing"
+budget = "decimating 0.125% of the variables per step, WalkSAT on the simplified formula"
+in_table1 = false   # SP is in Table 2 (algorithmic thresholds) and Table 3 (times), not in Table 1
+reference = "Mézard, Parisi & Zecchina, Science 297 (2002) 812"
+
+[algorithms."NeuroSAT_unsupervised_niters=2N_Ntrain=256"]
+method = "NeuroSAT (unsupervised)"
+kind = "GNN"
+budget = "2N message-passing iterations; trained on N ≤ 256"
+in_table1 = true
+reference = "Selsam et al., ICLR 2019; unsupervised loss as in the paper"
+
+[algorithms."QuerySAT_niters=2N_Ntrain=256"]
+method = "QuerySAT"
+kind = "GNN"
+budget = "2N recurrent iterations; trained on N ≤ 256"
+in_table1 = true
+reference = "Ozolins et al., IJCNN 2022"

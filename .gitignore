@@ -6,3 +6,5 @@ build/
 dist/
 .cache/
 problems/maxcut/baselines/maxcut_heur
+data/
+problems/ksat/baselines/exhaustive

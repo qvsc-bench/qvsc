@@ -86,6 +86,7 @@ footer a{color:var(--muted)}
   <div class="tabs problems" role="tablist" id="ptabs">
     <button role="tab" data-p="mis" aria-selected="true">Maximum Independent Set</button>
     <button role="tab" data-p="maxcut">Max-Cut</button>
+    <button role="tab" data-p="ksat">K-SAT</button>
   </div>
   <div class="versus" id="versus">
     <div class="side c"><div class="lab">Best classical</div><div class="big" id="vs-c">…</div><div class="sub" id="vs-c-sub"></div></div>
@@ -105,7 +106,7 @@ footer a{color:var(--muted)}
   <div class="grid">
     <div class="card"><div class="status live">Live</div><h3>Maximum Independent Set</h3><p>143 instances. Native problem of Rydberg-atom processors on unit-disk graphs; one-line QUBO for annealers and QAOA.</p></div>
     <div class="card"><div class="status live">Live</div><h3>Max-Cut</h3><p>401 instances: G-set, Biq Mac, MQLib, D-Wave and IBM hardware graphs, QAOA families, and planted instances with a known optimum.</p></div>
-    <div class="card"><div class="status planned">Planned</div><h3>K-SAT</h3><p>Random instances around the hardness threshold.</p></div>
+    <div class="card"><div class="status live">Live</div><h3>K-SAT</h3><p>89,217 instances: random 3- and 4-SAT around the satisfiability threshold from RandCSPBench (Skenderi et al. 2026), SATLIB uf20-91, and the MAX 3-SAT instances run with QAOA on trapped-ion hardware.</p></div>
     <div class="card"><div class="status planned">Planned</div><h3>LABS</h3><p>Low-autocorrelation binary sequences, used in recent quantum-advantage claims.</p></div>
   </div>
 </div></section>
@@ -114,9 +115,9 @@ footer a{color:var(--muted)}
   <h2>Submit a result</h2>
   <p>Results enter through a GitHub pull request. Quantum and hybrid entries are especially welcome; so are stronger classical solvers, which raise the bar for everyone.</p>
   <ol class="steps">
-    <li>Fork <a href="https://github.com/qvsc-bench/qvsc">qvsc-bench/qvsc</a> and add a folder under <code>problems/mis/submissions/</code> or <code>problems/maxcut/submissions/</code>.</li>
+    <li>Fork <a href="https://github.com/qvsc-bench/qvsc">qvsc-bench/qvsc</a> and add a folder under <code>problems/mis/submissions/</code>, <code>problems/maxcut/submissions/</code> or <code>problems/ksat/submissions/</code>.</li>
     <li>Put in it a <code>submission.toml</code> (method, paradigm, hardware, time budget) and one <code>.sol</code> file per instance you solved.</li>
-    <li>Run <code>python -m qvsc.mis.leaderboard --check</code> (or <code>qvsc.maxcut</code>) and open the pull request. On merge, the leaderboard updates itself.</li>
+    <li>Run <code>python -m qvsc.mis.leaderboard --check</code> (or <code>qvsc.maxcut</code>, <code>qvsc.ksat</code>) and open the pull request. On merge, the leaderboard updates itself.</li>
   </ol>
   <a class="btn primary" href="https://github.com/qvsc-bench/qvsc/blob/main/CONTRIBUTING.md">Submission guide</a>
   <a class="btn secondary" href="https://github.com/qvsc-bench/qvsc">View on GitHub</a>
@@ -126,7 +127,8 @@ footer a{color:var(--muted)}
 <footer><div class="wrap">
   QvsC: Quantum vs Classical Optimization Benchmark · code MIT, instances under their sources' licences ·
   Max-Cut literature instances from G-set, Biq Mac and MQLib; generated instances CC-BY-4.0 ·
-  MIS quantum track from Marino, Buffoni &amp; Zavalnij, <a href="https://doi.org/10.1038/s42005-026-02606-7">Commun. Phys. 9, 239 (2026)</a>
+  MIS quantum track from Marino, Buffoni &amp; Zavalnij, <a href="https://doi.org/10.1038/s42005-026-02606-7">Commun. Phys. 9, 239 (2026)</a> ·
+  K-SAT instances and reference results from RandCSPBench, Skenderi et al., <a href="https://arxiv.org/abs/2602.18419">arXiv:2602.18419</a>
 </div></footer>
 
 <script>
@@ -160,6 +162,23 @@ const VIEWS = {
       <a href="https://github.com/qvsc-bench/qvsc/blob/main/problems/maxcut/README.md#how-the-leaderboard-works">How to read these numbers</a>.
       Per-instance results: <a href="https://github.com/qvsc-bench/qvsc/blob/main/problems/maxcut/LEADERBOARD.md">LEADERBOARD.md</a> ·
       raw data: <a href="data/maxcut.json">maxcut.json</a>.`
+  },
+  ksat: {
+    head: ["#", "Method", "Kind", "Source", "Solved", "Score S", "Residual energy", "Time to solution (s)", "Budget"],
+    num: [false, false, false, false, true, true, true, true, false],
+    row: r => [esc(r.method), `${pill(r.paradigm)} ${esc(r.kind)}`, esc(r.source), `${r.solved}/${r.attempted}`,
+               r.score == null ? "–" : `${r.score.toFixed(2)}%`, r.residual == null ? "–" : r.residual.toFixed(4),
+               r.tts == null ? "–" : Number(r.tts).toPrecision(3), esc(r.budget)],
+    score: r => r.score == null ? "–" : `${r.score.toFixed(2)}%`,
+    sub: r => `score S · ${r.solved} solved of ${r.known_sat} with a known solution (${r.attempted} attempted) · ${r.method} (${r.source})`,
+    note: `Instances and reference results: RandCSPBench, <a href="https://arxiv.org/abs/2602.18419">Skenderi et al. (2026)</a>;
+      QAOA rows: <a href="https://arxiv.org/abs/2306.03238">Pelofske et al. (2023)</a>, best of all published shots.
+      Score S: solved / known satisfiable (an instance is known satisfiable if any method solved it, or its optimum is proven).
+      Residual energy: mean fraction of unsatisfied clauses over the instances a method did not solve.
+      Time to solution: median over the solved instances (reported). "Reported" rows come from the papers; "verified" rows are recomputed by QvsC.
+      <a href="https://github.com/qvsc-bench/qvsc/blob/main/problems/ksat/README.md#how-the-leaderboard-works">How to read these numbers</a> ·
+      <a href="https://github.com/qvsc-bench/qvsc/blob/main/problems/ksat/LEADERBOARD.md">LEADERBOARD.md</a> ·
+      raw data: <a href="data/ksat.json">ksat.json</a>.`
   }
 };
 const pill = p => `<span class="pill ${esc(p)}">${esc(p)}</span>`;
@@ -200,7 +219,7 @@ function show(problem) {
   });
 }
 document.querySelectorAll("#ptabs button").forEach(b => b.onclick = () => { TRACK = "all"; show(b.dataset.p); });
-show(location.hash === "#maxcut" ? "maxcut" : "mis");
+show(["#maxcut", "#ksat"].includes(location.hash) ? location.hash.slice(1) : "mis");
 </script>
 </body>
 </html>

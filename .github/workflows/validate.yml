@@ -19,12 +19,39 @@ jobs:
         run: python -m qvsc.mis.leaderboard --check
       - name: Verify every solution (Max-Cut)
         run: python -m qvsc.maxcut.leaderboard --check
+      - name: Cache K-SAT instances
+        uses: actions/cache@v4
+        with:
+          path: data/ksat
+          key: ksat-${{ hashFiles('problems/ksat/instances/index.csv.gz') }}
+      - name: Download the K-SAT instances the submissions use
+        run: python -m qvsc.ksat.fetch --out data/ksat --for-submissions
+      - name: Verify every assignment (K-SAT)
+        run: python -m qvsc.ksat.leaderboard --check --instances data/ksat
       - name: Rebuild leaderboard (main only)
         if: github.event_name == 'push'
         run: |
           python -m qvsc.mis.leaderboard
           python -m qvsc.maxcut.leaderboard
+          python -m qvsc.ksat.leaderboard --instances data/ksat
           git config user.name "qvsc-bot"
           git config user.email "qvsc-bot@users.noreply.github.com"
-          git add problems/mis/LEADERBOARD.md problems/maxcut/LEADERBOARD.md docs/data problems/mis/instances/index.csv problems/maxcut/instances/index.csv
+          git add problems/mis/LEADERBOARD.md problems/maxcut/LEADERBOARD.md problems/ksat/LEADERBOARD.md docs/data problems/mis/instances/index.csv problems/maxcut/instances/index.csv problems/ksat/instances/index.csv.gz
           git diff --cached --quiet || git commit -m "Rebuild leaderboard" && git push
+
+  ksat-instances:
+    # Downloads every indexed K-SAT instance from its original source (Hugging Face, Zenodo, SATLIB)
+    # and checks it against the hashes in problems/ksat/instances/index.csv.gz.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Cache K-SAT instances
+        uses: actions/cache@v4
+        with:
+          path: data/ksat-all
+          key: ksat-all-${{ hashFiles('problems/ksat/instances/index.csv.gz') }}
+      - name: Download and check all K-SAT instances
+        run: python -m qvsc.ksat.fetch --out data/ksat-all --check
