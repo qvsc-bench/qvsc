@@ -187,7 +187,8 @@ def write_markdown(subs, idx, path: Path):
          "> literature (for planted instances: the optimum known by construction). **Hits** = cut ≥ target;",
          "> **ratio** = mean cut / target; **at 99%** = instances within 1% of the target; **TTT99** = median",
          "> time to first reach 99% of the target over those instances (from trajectories, self-reported timings).",
-         "> Time limits and hardware differ between submissions: read them before comparing.", ""]
+         "> Time limits and hardware differ between submissions: read them before comparing.",
+         "> How to read these numbers, with an example: [README.md](README.md#how-to-read-the-mean-ratio).", ""]
     for track, title in TRACKS:
         rows = summarize(subs, idx, track)
         if not rows:

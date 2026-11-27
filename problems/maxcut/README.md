@@ -29,11 +29,34 @@ Every instance has a **target**: the larger of the best cut verified in this rep
 value reported in the literature (for planted instances, the optimum). Per submission and track:
 
 * **hits**: instances where the cut reaches the target;
-* **mean ratio**: average of cut / target;
+* **mean ratio**: average of cut / target over the instances the submission attempted;
 * **at 99%** and **TTT99**: how many instances the method brings within 1% of the target, and the
   median *time-to-target*, the wall-clock time at which the run first got there. TTT99 is computed
   from the trajectory file (`time_s cut` per improvement) if the submission provides one, so it stays
   correct when the target moves. Times are self-reported; budgets are in `submission.toml`.
+
+### How to read the mean ratio
+
+For each attempted instance we divide the verified cut by the instance's target, then average.
+Example: the target of G39 is 2,407; a run that finds a cut of 2,390 scores 2390 / 2407 = 99.29% on
+G39. A mean ratio of 99.78% means that, on average, the method's cuts are 0.22% below the best
+values known.
+
+Three caveats:
+
+1. **It is relative to the target, not to the true optimum.** Where the optimum is not known,
+   100% means "as good as the best value known", not "optimal". Only instances with status
+   `optimal`, and the planted ones, have a target that is certainly the optimum.
+2. **It compresses differences.** On Max-Cut even trivial methods cut most of the weight (the
+   greedy baseline averages about 89%), so the gap between 99.2% and 99.8% is large in practice.
+   Read the mean ratio together with hits, at 99% and TTT99.
+3. **It moves with the target.** When a submission raises a best-known value, the target goes up
+   and every other submission's ratio on that instance goes down. This is intended: the leaderboard
+   always measures the distance from the best known.
+
+This is not the approximation ratio of approximation-algorithm theory (cut / optimum, guaranteed in
+the worst case, e.g. 0.878 for Goemans–Williamson): it is an empirical average over a fixed set of
+instances.
 
 ## Quick start
 
