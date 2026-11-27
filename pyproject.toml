@@ -11,7 +11,7 @@ license = { text = "MIT" }
 authors = [{ name = "Raffaele Marino" }]
 requires-python = ">=3.11"
 dependencies = []
-keywords = ["quantum computing", "benchmark", "combinatorial optimization", "maximum independent set", "QUBO"]
+keywords = ["quantum computing", "benchmark", "combinatorial optimization", "maximum independent set", "max-cut", "QAOA", "quantum annealing", "QUBO"]
 
 [project.optional-dependencies]
 cpsat = ["ortools>=9.10"]

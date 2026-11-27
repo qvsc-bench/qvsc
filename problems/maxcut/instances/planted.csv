@@ -1,0 +1,29 @@
+name,construction,params,optimum,solution_sha256
+planted-wishart-n32-a0.25,integer Wishart planted ensemble,"n=32, alpha=0.25",96,d387c9a8abc9f5e3b67d8b0fc82f46beccd69ccecd4abc75c04564bc1e8c2880
+planted-wishart-n32-a0.5,integer Wishart planted ensemble,"n=32, alpha=0.5",144,75dd10f5a6208f2b31a65951e86e0d073e01acc4460b4db7f6729d9c9cf027c8
+planted-wishart-n64-a0.25,integer Wishart planted ensemble,"n=64, alpha=0.25",108,9790012aa17985ec71ce0b984104a5a69b1f101952185cdf239d3f9711e48ebc
+planted-wishart-n64-a0.5,integer Wishart planted ensemble,"n=64, alpha=0.5",368,25152745ec651c21ec0b38ae17948eb6767f4b87cf6fd6b7db122e597131e3ed
+planted-wishart-n100-a0.25,integer Wishart planted ensemble,"n=100, alpha=0.25",577,1173892197a8110ebb85fff1a2a6967d8e5178cdba1b44de316d93c01764b7c4
+planted-wishart-n100-a0.5,integer Wishart planted ensemble,"n=100, alpha=0.5",1266,6177e829fe35aa629a2b6c84970b939cdf4d61f4693e757e898144951a91d66c
+planted-wishart-n128-a0.25,integer Wishart planted ensemble,"n=128, alpha=0.25",1224,8637988985e4d5c24245978fd100660ea09c170e847dcf0e33d80a0bee2b5838
+planted-wishart-n128-a0.5,integer Wishart planted ensemble,"n=128, alpha=0.5",1696,6e254efc5950de0f90196dfceb172e892032720a037876c83a010d4cfc5b89c9
+planted-wishart-n156-a0.25,integer Wishart planted ensemble,"n=156, alpha=0.25",1951,301082a9b3d68725e3c0cf9657a3bad67cec586d0ca1a1246009c6d233fdba3a
+planted-wishart-n156-a0.5,integer Wishart planted ensemble,"n=156, alpha=0.5",3094,e208a9c702ef3ceb829e24ff28757dfc73dabf5a332b4eda3d6e4713cf7a35b8
+planted-wishart-n256-a0.25,integer Wishart planted ensemble,"n=256, alpha=0.25",5156,a2e4c6dc15f09f40c84593434af8ce6a2dccf350b882ef42e00b2cb48e1e388b
+planted-wishart-n256-a0.5,integer Wishart planted ensemble,"n=256, alpha=0.5",9472,b2cbae38877389baf90596149edb0995b7caa3bcd054153a21f44b43201f14ed
+planted-wishart-n512-a0.25,integer Wishart planted ensemble,"n=512, alpha=0.25",16964,0e39485dd534ee5036499817fce39353a36fbd4b22af59c02fad482946a07c26
+planted-wishart-n512-a0.5,integer Wishart planted ensemble,"n=512, alpha=0.5",32780,6f0cab6e9a5055d4406404ade2219b4c04911abcb219f850dbbd7f70da93935e
+planted-loops-pegasus-P6-a0.15,frustrated loops,"pegasus-P6, alpha=0.15, |J|<=3",392,28d34fea63d35ff05f1d162ac09df77c4d7b20432fb3490505ff54c486aaa871
+planted-loops-pegasus-P6-a0.3,frustrated loops,"pegasus-P6, alpha=0.3, |J|<=3",844,56b6c3cd52a33bc70cc7f3723eabb6519a074e837288eaa801dbab6ab4a08600
+planted-loops-pegasus-P16-a0.15,frustrated loops,"pegasus-P16, alpha=0.15, |J|<=3",3552,4b4b190e517ed0c7775dc8cc41d79519eca330cde8cea15a7364e78b4ead4c88
+planted-loops-pegasus-P16-a0.3,frustrated loops,"pegasus-P16, alpha=0.3, |J|<=3",7246,2c26e7b3e2f947602a01c70e32603dd3efa5dc346e942b99d2d3718123d275c2
+planted-loops-zephyr-Z4-a0.15,frustrated loops,"zephyr-Z4, alpha=0.15, |J|<=3",352,dd0691c228d85fa020b9098784e2fbe5cc954e6a1aace576f1691c989a45f978
+planted-loops-zephyr-Z4-a0.3,frustrated loops,"zephyr-Z4, alpha=0.3, |J|<=3",738,aa290f413d1a21f54351e636908e510100b91b536f6919b7369294ca50b8bc13
+planted-loops-zephyr-Z12-a0.15,frustrated loops,"zephyr-Z12, alpha=0.15, |J|<=3",3270,bddf7d346153fcc727f9e8ffc772162b11b113eadaea51f582f92f2b670d9190
+planted-loops-zephyr-Z12-a0.3,frustrated loops,"zephyr-Z12, alpha=0.3, |J|<=3",6428,a005cdccb095bb4e53d8199c2a5527b75791db51d7ea473c4b9ffdb1ea0747ce
+planted-loops-ibm-eagle127-a0.1,frustrated loops,"ibm-eagle127, alpha=0.1, |J|<=3",110,cd9117d16caf4c8214aaec925ce4a9eca089492d90146917f0e180c719ab4e1a
+planted-loops-ibm-heron156-a0.1,frustrated loops,"ibm-heron156, alpha=0.1, |J|<=3",104,35cf3a11743d280d320717d613227db4e6664ce16718a9c3fb762ff66b5a8916
+planted-loops-heavyhex-d15-a0.1,frustrated loops,"heavyhex-d15, alpha=0.1, |J|<=3",434,211e914b30a1c799b5b0fd8e2891fb122b81206475d2227996f48f68de69eaef
+planted-loops-cubic-L8-a0.2,frustrated loops,"cubic-L8, alpha=0.2, |J|<=3",478,7ace048432873868530e2128df407e273c7d92ef505729439117874e0fea060a
+planted-loops-cubic-L16-a0.15,frustrated loops,"cubic-L16, alpha=0.15, |J|<=3",2442,5ecbfd8266ab66dc8134a8a2d54209cb0e77508aad1541c82907f0a119a50223
+planted-loops-cubic-L16-a0.3,frustrated loops,"cubic-L16, alpha=0.3, |J|<=3",4330,f0e4d5b4ae713ff37f6303d15169b360933ea50140c60b9d0d9d7bc195a1f441

@@ -13,13 +13,16 @@ url: "https://qvsc-bench.github.io/qvsc/"
 abstract: >-
   An open, verifiable benchmark where quantum, hybrid and classical solvers
   compete on the same combinatorial optimization instances. Every leaderboard
-  entry is recomputed from a submitted solution file. The first problem is
-  Maximum Independent Set (143 instances, classical reference baselines).
+  entry is recomputed from a submitted solution file. Two problems are
+  live: Maximum Independent Set (143 instances) and Max-Cut (401 instances,
+  including planted instances on quantum hardware graphs), each with classical
+  reference baselines.
 keywords:
   - quantum computing
   - benchmark
   - combinatorial optimization
   - maximum independent set
+  - max-cut
   - quantum advantage
   - QAOA
   - quantum annealing

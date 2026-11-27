@@ -1,0 +1,10 @@
+[submission]
+method = "OR-Tools CP-SAT"
+authors = ["QvsC maintainers"]
+paradigm = "classical"   # classical | quantum | hybrid
+date = "2026-11-27"
+hardware = "Intel(R) Xeon(R) Processor @ 2.10GHz, 4 CP-SAT threads"
+time_limit_s = 10   # wall-clock budget per instance (0 = run to completion)
+code = "https://github.com/qvsc-bench/qvsc/tree/main/problems/maxcut/baselines"
+description = "Exact solver from Google OR-Tools on the XOR formulation, used as an anytime solver with a time limit; certifies optimality when it closes the gap."
+exact = true   # results.csv upper_bound column holds proven bounds
