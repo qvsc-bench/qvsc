@@ -1,0 +1,15 @@
+{
+  "title": "QvsC: Quantum vs Classical Optimization Benchmark",
+  "upload_type": "software",
+  "description": "<p>An open, verifiable benchmark where quantum, hybrid and classical solvers compete on the same combinatorial optimization instances. Every leaderboard entry is recomputed from a submitted solution file. The first problem is Maximum Independent Set (143 instances, classical reference baselines). Leaderboard: <a href=\"https://qvsc-bench.github.io/qvsc/\">qvsc-bench.github.io/qvsc</a>.</p>",
+  "creators": [
+    {"name": "Marino, Raffaele"}
+  ],
+  "license": "MIT",
+  "access_right": "open",
+  "keywords": ["quantum computing", "benchmark", "combinatorial optimization", "maximum independent set", "quantum advantage", "QAOA", "quantum annealing"],
+  "related_identifiers": [
+    {"identifier": "10.1038/s42005-026-02606-7", "relation": "references", "resource_type": "publication-article"},
+    {"identifier": "https://qvsc-bench.github.io/qvsc/", "relation": "isDocumentedBy", "resource_type": "other"}
+  ]
+}
