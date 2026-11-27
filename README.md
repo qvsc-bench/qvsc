@@ -2,6 +2,8 @@
 
 **An open, verifiable benchmark where quantum, hybrid and classical solvers compete on the same instances.**
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24590733.svg)](https://doi.org/10.5281/zenodo.24590733)
+
 [Leaderboard](https://qvsc-bench.github.io/qvsc/) · [Submit results](CONTRIBUTING.md) · [MIS track](problems/mis/README.md) · [Max-Cut track](problems/maxcut/README.md)
 
 Claims of quantum advantage in combinatorial optimisation are hard to check. Instances differ
@@ -101,6 +103,7 @@ quantum track, and the instance sources listed in [`problems/mis/instances/SOURC
   author  = {Marino, Raffaele},
   year    = {2026},
   version = {0.1.0},
+  doi     = {10.5281/zenodo.24590733},
   url     = {https://github.com/qvsc-bench/qvsc}
 }
 
