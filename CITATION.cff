@@ -6,6 +6,7 @@ authors:
   - family-names: Marino
     given-names: Raffaele
 version: 0.1.0
+doi: 10.5281/zenodo.24590733
 date-released: 2026-11-27
 license: MIT
 repository-code: "https://github.com/qvsc-bench/qvsc"
@@ -17,6 +18,10 @@ abstract: >-
   live: Maximum Independent Set (143 instances) and Max-Cut (401 instances,
   including planted instances on quantum hardware graphs), each with classical
   reference baselines.
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.24590733
+    description: Zenodo archive of the release
 keywords:
   - quantum computing
   - benchmark
